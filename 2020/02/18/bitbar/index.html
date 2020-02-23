@@ -87,12 +87,10 @@ function activateLightMode(){
 <li>如果你也像我一样被<strong>毒瘤亚马逊云</strong>恶心一晚上，不妨试试通过云服务器下载，再利用ssh把包从服务器上拉取下来。</li>
 </ul>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">sh</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh your_user_name@your_ip <span class="comment"># 登录服务器</span></span><br><span class="line">wget https://github.com/matryer/bitbar/releases/download/v1.9.2/BitBar-v1.9.2.zip <span class="comment"># 下载</span></span><br><span class="line"><span class="built_in">exit</span> <span class="comment"># 退出服务器</span></span><br><span class="line">scp your_user_name@your_ip:Download_dir/BitBar-v1.9.2.zip BitBar-v1.9.2.zip <span class="comment"># 拉取zip包</span></span><br><span class="line">qs -unzip BitBar-v1.9.2.zip <span class="comment"># 解压</span></span><br></pre></td></tr></tbody></table></figure></div>
-
 <ul>
 <li>如果你的电脑能正常使用<a href="https://pypi.org/project/Qpro/" target="_blank" rel="noopener">Qpro</a></li>
 </ul>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">sh</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">qpro -ssh <span class="comment"># 登录服务器</span></span><br><span class="line">wget https://github.com/matryer/bitbar/releases/download/v1.9.2/BitBar-v1.9.2.zip <span class="comment"># 下载</span></span><br><span class="line"><span class="built_in">exit</span> <span class="comment"># 退出服务器</span></span><br><span class="line">qpro -scp BitBar-v1.9.2.zip <span class="comment"># 拉取zip包</span></span><br><span class="line">qs -unzip BitBar-v1.9.2.zip <span class="comment"># 解压</span></span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>这个方法经过测试，可以达到<code>20kb/s</code>，还算是很乐观了~</p>
 <p>不过这还是很麻烦，你可以直接点击<a href="https://rhythmlian.cn/BitBar.zip">BitBar</a>下载~</p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
@@ -103,7 +101,6 @@ function activateLightMode(){
 <li><p>BitBar推荐脚本</p>
 <p>事实上，直接通过官网安装是很低效的，你可以利用git把官网上所有的脚本都下载下来，再把<code>.git</code>文件夹删掉，其实脚本库一共就<code>3.4M</code>。</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">sh</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/matryer/bitbar-plugins.git</span><br><span class="line"><span class="built_in">cd</span> bitbar-plugins</span><br><span class="line">rm -rf .git</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>下载好后，在<a href="https://getbitbar.com/" target="_blank" rel="noopener">官网</a>翻阅你感兴趣的脚本，并把它从<code>bitbar-plugins</code>复制到<code>BitBar_Plugins</code>就好。</p>
 </li>
 <li><p>自定义脚本</p>
@@ -118,30 +115,7 @@ function activateLightMode(){
 <li><code>date.1m.sh</code>将会每隔一分钟执行一次</li>
 </ul>
 <p>时间格式</p>
-<table>
-<thead>
-<tr>
-<th align="center">时间</th>
-<th align="center">格式</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">秒</td>
-<td align="center">s</td>
-</tr>
-<tr>
-<td align="center">分钟</td>
-<td align="center">m</td>
-</tr>
-<tr>
-<td align="center">小时</td>
-<td align="center">h</td>
-</tr>
-<tr>
-<td align="center">天</td>
-<td align="center">d</td>
-</tr>
-</tbody></table>
+<p>| 时间 | 格式 |<br>| :—: | :—: |<br>|  秒  |  s   |<br>| 分钟 |  m   |<br>| 小时 |  h   |<br>|  天  |  d   |</p>
 </li>
 </ul>
 </li>
