@@ -1395,7 +1395,7 @@ blockquote footer cite:before {
   color: #c792ea;
 }
 .article-container pre .comment {
-  color: #4a4a4a;
+  color: #fc3;
 }
 .article-container pre .comment::selection {
   background: #00c4b6;
