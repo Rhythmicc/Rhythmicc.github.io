@@ -14,7 +14,7 @@ $(function () {
 
   window.onload = function(){
     var ele = document.getElementById('content-inner');
-    ele.removeClass('google-auto-placed');
+    ele.removeChild(ele.lastChild);
   }
 
   /**
