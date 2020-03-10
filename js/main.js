@@ -12,11 +12,6 @@ $(function () {
     mw = mw + $('#page-header .menus_item').eq(i).outerWidth()
   }
 
-  window.onload = function(){
-    var ele = document.getElementById('content-inner');
-    ele.removeChild(ele.lastChild);
-  }
-
   /**
    * 傳入 1 sidebar打開時
    * 傳入 2 正常狀態下
@@ -928,3 +923,9 @@ $(function () {
     })()
   }
 })
+
+
+$(function(){
+  var ele = document.getElementById('content-inner');
+  ele.removeChild(ele.lastChild);
+});
