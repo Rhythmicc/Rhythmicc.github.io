@@ -1,6 +1,4 @@
 $(function () {
-  var ele = document.getElementById('content-inner');
-  ele.removeChild(ele.lastChild);
   const isSnackbar = GLOBAL_CONFIG.Snackbar !== undefined
   const isTocContent = $('#sidebar .sidebar-toc__content').children().length > 0
   /**
