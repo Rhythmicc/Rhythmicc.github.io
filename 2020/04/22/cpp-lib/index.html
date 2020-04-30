@@ -1,0 +1,894 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"><title>C++ 应用库 | RhythmLian's Blog</title><meta name="description" content="C++ 应用库"><meta name="author" content="RhythmLian,RhythmLian@outlook.com"><meta name="copyright" content="RhythmLian"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="https://i.loli.net/2020/02/14/r2kUf4DVWNxcJAL.jpg"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="https://hm.baidu.com"><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="preconnect" href="//busuanzi.ibruce.info"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="C++ 应用库"><meta name="twitter:description" content="C++ 应用库"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png"><meta property="og:type" content="article"><meta property="og:title" content="C++ 应用库"><meta property="og:url" content="https://rhythmlian.cn/2020/04/22/cpp-lib/"><meta property="og:site_name" content="RhythmLian's Blog"><meta property="og:description" content="C++ 应用库"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = '2'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="canonical" href="https://rhythmlian.cn/2020/04/22/cpp-lib/"><link rel="next" title="使用NATAPP内网穿透！" href="https://rhythmlian.cn/2020/04/14/nat/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8bb8a09b88dafd85044d3d71177bc951";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"WNAFUD6O7W","apiKey":"7d847dd41d23ae4f850374c4a7a532cc","indexName":"MyBlogIndex","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"http://www.cnblogs.com/Rhythm-/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: {"bookmark":{"title":"Snackbar.bookmark.title","message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  baiduPush: true,
+  isHome: false,
+  isPost: true
+  
+}</script><meta name="generator" content="Hexo 4.2.0"></head><body><header> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">RhythmLian's Blog</a></span><span class="toggle-menu pull_right close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="http://www.wumfast.com/auth/register?code=84174" target="_blank" rel="noopener"><i class="fa-fw fa fa-rocket"></i><span> VPN</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-folder" aria-hidden="true"></i><span> 文章</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间</span></a></li></ul></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li><li><a class="site-page" href="/source/"><i class="fa-fw fa fa-link"></i><span> 资源</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></span><span class="pull_right" id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></span></div></header><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://i.loli.net/2020/02/14/r2kUf4DVWNxcJAL.jpg" onerror="onerror=null;src='https://i.loli.net/2020/02/14/MyKuRHkf2DTXsW8.gif'" alt="avatar"></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">19</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">9</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">6</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="http://www.wumfast.com/auth/register?code=84174" target="_blank" rel="noopener"><i class="fa-fw fa fa-rocket"></i><span> VPN</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-folder" aria-hidden="true"></i><span> 文章</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间</span></a></li></ul></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li><li><a class="site-page" href="/source/"><i class="fa-fw fa fa-link"></i><span> 资源</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><div class="sidebar-toc__content"><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#标准库"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">标准库</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#框架"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">框架</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#人工智能"><span class="toc_mobile_items-number">3.</span> <span class="toc_mobile_items-text">人工智能</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#音频"><span class="toc_mobile_items-number">4.</span> <span class="toc_mobile_items-text">音频</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#生态学"><span class="toc_mobile_items-number">5.</span> <span class="toc_mobile_items-text">生态学</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#压缩"><span class="toc_mobile_items-number">6.</span> <span class="toc_mobile_items-text">压缩</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#并发性"><span class="toc_mobile_items-number">7.</span> <span class="toc_mobile_items-text">并发性</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#容器"><span class="toc_mobile_items-number">8.</span> <span class="toc_mobile_items-text">容器</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#密码学"><span class="toc_mobile_items-number">9.</span> <span class="toc_mobile_items-text">密码学</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#数据库"><span class="toc_mobile_items-number">10.</span> <span class="toc_mobile_items-text">数据库</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#调试"><span class="toc_mobile_items-number">11.</span> <span class="toc_mobile_items-text">调试</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#游戏引擎"><span class="toc_mobile_items-number">12.</span> <span class="toc_mobile_items-text">游戏引擎</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#图形用户界面"><span class="toc_mobile_items-number">13.</span> <span class="toc_mobile_items-text">图形用户界面</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#图形"><span class="toc_mobile_items-number">14.</span> <span class="toc_mobile_items-text">图形</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#图像处理"><span class="toc_mobile_items-number">15.</span> <span class="toc_mobile_items-text">图像处理</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#国际化"><span class="toc_mobile_items-number">16.</span> <span class="toc_mobile_items-text">国际化</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#Jason"><span class="toc_mobile_items-number">17.</span> <span class="toc_mobile_items-text">Jason</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#日志"><span class="toc_mobile_items-number">18.</span> <span class="toc_mobile_items-text">日志</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#机器学习"><span class="toc_mobile_items-number">19.</span> <span class="toc_mobile_items-text">机器学习</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#数学"><span class="toc_mobile_items-number">20.</span> <span class="toc_mobile_items-text">数学</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#多媒体"><span class="toc_mobile_items-number">21.</span> <span class="toc_mobile_items-text">多媒体</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#网络"><span class="toc_mobile_items-number">22.</span> <span class="toc_mobile_items-text">网络</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#物理学"><span class="toc_mobile_items-number">23.</span> <span class="toc_mobile_items-text">物理学</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#机器人学"><span class="toc_mobile_items-number">24.</span> <span class="toc_mobile_items-text">机器人学</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#科学计算"><span class="toc_mobile_items-number">25.</span> <span class="toc_mobile_items-text">科学计算</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#脚本"><span class="toc_mobile_items-number">26.</span> <span class="toc_mobile_items-text">脚本</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#序列化"><span class="toc_mobile_items-number">27.</span> <span class="toc_mobile_items-text">序列化</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#视频"><span class="toc_mobile_items-number">28.</span> <span class="toc_mobile_items-text">视频</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#虚拟机"><span class="toc_mobile_items-number">29.</span> <span class="toc_mobile_items-text">虚拟机</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#Web应用框架"><span class="toc_mobile_items-number">30.</span> <span class="toc_mobile_items-text">Web应用框架</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#XML"><span class="toc_mobile_items-number">31.</span> <span class="toc_mobile_items-text">XML</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#多项混杂"><span class="toc_mobile_items-number">32.</span> <span class="toc_mobile_items-text">多项混杂</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#软件"><span class="toc_mobile_items-number">33.</span> <span class="toc_mobile_items-text">软件</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#编译器"><span class="toc_mobile_items-number">34.</span> <span class="toc_mobile_items-text">编译器</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#在线编译器"><span class="toc_mobile_items-number">35.</span> <span class="toc_mobile_items-text">在线编译器</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#调试器"><span class="toc_mobile_items-number">36.</span> <span class="toc_mobile_items-text">调试器</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#集成开发环境（IDE）"><span class="toc_mobile_items-number">37.</span> <span class="toc_mobile_items-text">集成开发环境（IDE）</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#构建系统"><span class="toc_mobile_items-number">38.</span> <span class="toc_mobile_items-text">构建系统</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#静态代码分析"><span class="toc_mobile_items-number">39.</span> <span class="toc_mobile_items-text">静态代码分析</span></a></li></ol></div></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#标准库"><span class="toc-number">1.</span> <span class="toc-text">标准库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#框架"><span class="toc-number">2.</span> <span class="toc-text">框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#人工智能"><span class="toc-number">3.</span> <span class="toc-text">人工智能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#音频"><span class="toc-number">4.</span> <span class="toc-text">音频</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#生态学"><span class="toc-number">5.</span> <span class="toc-text">生态学</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#压缩"><span class="toc-number">6.</span> <span class="toc-text">压缩</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#并发性"><span class="toc-number">7.</span> <span class="toc-text">并发性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#容器"><span class="toc-number">8.</span> <span class="toc-text">容器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#密码学"><span class="toc-number">9.</span> <span class="toc-text">密码学</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库"><span class="toc-number">10.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#调试"><span class="toc-number">11.</span> <span class="toc-text">调试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#游戏引擎"><span class="toc-number">12.</span> <span class="toc-text">游戏引擎</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图形用户界面"><span class="toc-number">13.</span> <span class="toc-text">图形用户界面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图形"><span class="toc-number">14.</span> <span class="toc-text">图形</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图像处理"><span class="toc-number">15.</span> <span class="toc-text">图像处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#国际化"><span class="toc-number">16.</span> <span class="toc-text">国际化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Jason"><span class="toc-number">17.</span> <span class="toc-text">Jason</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#日志"><span class="toc-number">18.</span> <span class="toc-text">日志</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#机器学习"><span class="toc-number">19.</span> <span class="toc-text">机器学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数学"><span class="toc-number">20.</span> <span class="toc-text">数学</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多媒体"><span class="toc-number">21.</span> <span class="toc-text">多媒体</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网络"><span class="toc-number">22.</span> <span class="toc-text">网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#物理学"><span class="toc-number">23.</span> <span class="toc-text">物理学</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#机器人学"><span class="toc-number">24.</span> <span class="toc-text">机器人学</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#科学计算"><span class="toc-number">25.</span> <span class="toc-text">科学计算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#脚本"><span class="toc-number">26.</span> <span class="toc-text">脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#序列化"><span class="toc-number">27.</span> <span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#视频"><span class="toc-number">28.</span> <span class="toc-text">视频</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机"><span class="toc-number">29.</span> <span class="toc-text">虚拟机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Web应用框架"><span class="toc-number">30.</span> <span class="toc-text">Web应用框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#XML"><span class="toc-number">31.</span> <span class="toc-text">XML</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多项混杂"><span class="toc-number">32.</span> <span class="toc-text">多项混杂</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#软件"><span class="toc-number">33.</span> <span class="toc-text">软件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编译器"><span class="toc-number">34.</span> <span class="toc-text">编译器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#在线编译器"><span class="toc-number">35.</span> <span class="toc-text">在线编译器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#调试器"><span class="toc-number">36.</span> <span class="toc-text">调试器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#集成开发环境（IDE）"><span class="toc-number">37.</span> <span class="toc-text">集成开发环境（IDE）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构建系统"><span class="toc-number">38.</span> <span class="toc-text">构建系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#静态代码分析"><span class="toc-number">39.</span> <span class="toc-text">静态代码分析</span></a></li></ol></div></div></div><main id="content-outer"><div id="top-container" style="background-image: url(https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png)"><div id="post-info"><div id="post-title"><div class="posttitle">C++ 应用库</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 发表于 2020-04-22<span class="post-meta__separator">|</span><i class="fa fa-history fa-fw" aria-hidden="true"></i> 更新于 2020-04-22</time><div class="post-meta-wordcount"><i class="fa fa-file-word-o post-meta__icon fa-fw" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">6k</span><span class="post-meta__separator">|</span><i class="fa fa-clock-o post-meta__icon fa-fw" aria-hidden="true"></i><span>阅读时长: 20 分钟</span><div class="post-meta-pv-cv"><span class="post-meta__separator">|</span><span><i class="fa fa-eye post-meta__icon fa-fw" aria-hidden="true"> </i>阅读量:</span><span id="busuanzi_value_page_pv"></span></div></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><html><head></head><body><blockquote>
+<p>关于 C++ 框架、库和资源的一些汇总列表，内容包括：标准库、Web应用框架、人工智能、数据库、图片处理、机器学习、日志、代码分析等。</p>
+</blockquote>
+<hr>
+<h1 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a><strong>标准库</strong></h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>库</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C++标准库</td>
+<td>包括了STL容器，算法和函数</td>
+</tr>
+<tr>
+<td>C++ Standard Library</td>
+<td>一系列类和函数的集合，使用核心语言编写，也是C++ISO自身标准的一部分</td>
+</tr>
+<tr>
+<td>Standard Template Library</td>
+<td>标准模板库</td>
+</tr>
+<tr>
+<td>C POSIX library</td>
+<td>POSIX系统的C标准库规范</td>
+</tr>
+<tr>
+<td>ISO C++ Standards Committee</td>
+<td>C++标准委员会</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h1 id="框架"><a href="#框架" class="headerlink" title="框架"></a><strong>框架</strong></h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>库</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C++通用框架和库</td>
+<td></td>
+</tr>
+<tr>
+<td>Apache C++ Standard Library</td>
+<td>一系列算法，容器，迭代器和其他基本组件的集合</td>
+</tr>
+<tr>
+<td>ASL</td>
+<td>Adobe源代码库提供了同行的评审和可移植的C++源代码库</td>
+</tr>
+<tr>
+<td>Boost</td>
+<td>大量通用C++库的集合</td>
+</tr>
+<tr>
+<td>BDE</td>
+<td>来自于彭博资讯实验室的开发环境</td>
+</tr>
+<tr>
+<td>Cinder</td>
+<td>提供专业品质创造性编码的开源开发社区</td>
+</tr>
+<tr>
+<td>Cxxomfort</td>
+<td>轻量级的，只包含头文件的库，将C++ 11的一些新特性移植到C++03中</td>
+</tr>
+<tr>
+<td>Dlib</td>
+<td>使用契约式编程和现代C++科技设计的通用的跨平台的C++库</td>
+</tr>
+<tr>
+<td>EASTL</td>
+<td>EA-STL公共部分</td>
+</tr>
+<tr>
+<td>ffead-cpp</td>
+<td>企业应用程序开发框架</td>
+</tr>
+<tr>
+<td>Folly</td>
+<td>由Facebook开发和使用的开源C++库</td>
+</tr>
+<tr>
+<td>JUCE</td>
+<td>包罗万象的C++类库，用于开发跨平台软件</td>
+</tr>
+<tr>
+<td>libPhenom</td>
+<td>用于构建高性能和高度可扩展性系统的事件框架</td>
+</tr>
+<tr>
+<td>LibSourcey</td>
+<td>用于实时的视频流和高性能网络应用程序的C++11 evented IO</td>
+</tr>
+<tr>
+<td>LibU</td>
+<td>C语言写的多平台工具库</td>
+</tr>
+<tr>
+<td>Loki</td>
+<td>C++库的设计，包括常见的设计模式和习语的实现</td>
+</tr>
+<tr>
+<td>MiLi</td>
+<td>只含头文件的小型C++库</td>
+</tr>
+<tr>
+<td>openFrameworks</td>
+<td>开发C++工具包，用于创意性编码</td>
+</tr>
+<tr>
+<td>Qt</td>
+<td>跨平台的应用程序和用户界面框架</td>
+</tr>
+<tr>
+<td>Reason</td>
+<td>跨平台的框架，使开发者能够更容易地使用Java，.Net和Python，<br>同时也满足了他们对C++性能和优势的需求</td>
+</tr>
+<tr>
+<td>ROOT</td>
+<td>具备所有功能的一系列面向对象的框架，能够非常高效地处理和分析大量的数据<br>（为欧洲原子能研究机构所用）</td>
+</tr>
+<tr>
+<td>STLport</td>
+<td>是STL具有代表性的版本</td>
+</tr>
+<tr>
+<td>STXXL</td>
+<td>用于额外的大型数据集的标准模板库</td>
+</tr>
+<tr>
+<td>Ultimate++</td>
+<td>C++跨平台快速应用程序开发框架</td>
+</tr>
+<tr>
+<td>Windows Template Library</td>
+<td>用于开发Windows应用程序和UI组件的C++库</td>
+</tr>
+<tr>
+<td>Yomm11</td>
+<td>C++11的开放multi-methods.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h1 id="人工智能"><a href="#人工智能" class="headerlink" title="人工智能"></a><strong>人工智能</strong></h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>库</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>btsk</td>
+<td>游戏行为树启动器工具</td>
+</tr>
+<tr>
+<td>Evolving Objects</td>
+<td>基于模板的，ANSI C++演化计算库，能够帮助你非常快速地编写出自己的随机优化算法</td>
+</tr>
+<tr>
+<td>Neu</td>
+<td>C++11框架，编程语言集，用于创建人工智能应用程序的多用途软件系统</td>
+</tr>
+<tr>
+<td>异步事件循环</td>
+<td></td>
+</tr>
+<tr>
+<td>Boost.Asio</td>
+<td>用于网络和底层I/O编程的跨平台的C++库</td>
+</tr>
+<tr>
+<td>libev</td>
+<td>功能齐全，高性能的时间循环，轻微地仿效libevent，<br>但是不再像libevent一样有局限性，也修复了它的一些bug。</td>
+</tr>
+<tr>
+<td>libevent</td>
+<td>事件通知库</td>
+</tr>
+<tr>
+<td>libuv</td>
+<td>跨平台异步I/O</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h1 id="音频"><a href="#音频" class="headerlink" title="音频"></a><strong>音频</strong></h1><blockquote>
+<p>音频，声音，音乐，数字化音乐库</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>库</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FMOD</td>
+<td>易于使用的跨平台的音频引擎和音频内容的游戏创作工具</td>
+</tr>
+<tr>
+<td>Maximilian</td>
+<td>C++音频和音乐数字信号处理库</td>
+</tr>
+<tr>
+<td>OpenAL</td>
+<td>开源音频库—跨平台的音频API</td>
+</tr>
+<tr>
+<td>Opus</td>
+<td>一个完全开放的，免版税的，高度通用的音频编解码器</td>
+</tr>
+<tr>
+<td>Speex</td>
+<td>免费编解码器，为Opus所废弃</td>
+</tr>
+<tr>
+<td>Tonic</td>
+<td>C++易用和高效的音频合成</td>
+</tr>
+<tr>
+<td>Vorbis</td>
+<td>Ogg Vorbis是一种完全开放的，非专有的，免版税的通用压缩音频格式</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h1 id="生态学"><a href="#生态学" class="headerlink" title="生态学"></a><strong>生态学</strong></h1><blockquote>
+<p>生物信息，基因组学和生物技术</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>库</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>libsequence</td>
+<td>用于表示和分析群体遗传学数据的C++库</td>
+</tr>
+<tr>
+<td>SeqAn</td>
+<td>专注于生物数据序列分析的算法和数据结构</td>
+</tr>
+<tr>
+<td>Vcflib</td>
+<td>用于解析和处理VCF文件的C++库</td>
+</tr>
+<tr>
+<td>Wham</td>
+<td>直接把联想测试应用到BAM文件的基因结构变异</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h1 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a><strong>压缩</strong></h1><blockquote>
+<p>压缩和归档库</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>库</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bzip2</td>
+<td>一个完全免费，免费专利和高质量的数据压缩</td>
+</tr>
+<tr>
+<td>doboz</td>
+<td>能够快速解压缩的压缩库</td>
+</tr>
+<tr>
+<td>PhysicsFS</td>
+<td>对各种归档提供抽象访问的库，主要用于视频游戏，设计灵感部分来自于Quake3的文件子系统</td>
+</tr>
+<tr>
+<td>KArchive</td>
+<td>用于创建，读写和操作文件档案（例如zip和 tar）的库，<br>它通过QIODevice的一系列子类，使用gzip格式，提供了透明的压缩和解压缩的数据</td>
+</tr>
+<tr>
+<td>LZ4</td>
+<td>非常快速的压缩算法</td>
+</tr>
+<tr>
+<td>LZHAM</td>
+<td>无损压缩数据库，压缩比率跟LZMA接近，但是解压缩速度却要快得多</td>
+</tr>
+<tr>
+<td>LZMA</td>
+<td>7z格式默认和通用的压缩方法</td>
+</tr>
+<tr>
+<td>LZMAT</td>
+<td>及其快速的实时无损数据压缩库</td>
+</tr>
+<tr>
+<td>miniz</td>
+<td>单一的C源文件，紧缩/膨胀压缩库，使用zlib兼容API，ZIP归档读写，PNG写方式</td>
+</tr>
+<tr>
+<td>Minizip</td>
+<td>Zlib最新bug修复，支持PKWARE磁盘跨越，AES加密和IO缓冲</td>
+</tr>
+<tr>
+<td>Snappy</td>
+<td>快速压缩和解压缩</td>
+</tr>
+<tr>
+<td>ZLib</td>
+<td>非常紧凑的数据流压缩库</td>
+</tr>
+<tr>
+<td>ZZIPlib</td>
+<td>提供ZIP归档的读权限</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h1 id="并发性"><a href="#并发性" class="headerlink" title="并发性"></a><strong>并发性</strong></h1><blockquote>
+<p>并发执行和多线程</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>库</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Boost.Compute</td>
+<td>用于OpenCL的C++GPU计算库</td>
+</tr>
+<tr>
+<td>Bolt</td>
+<td>针对GPU进行优化的C++模板库</td>
+</tr>
+<tr>
+<td>C++React</td>
+<td>用于C++11的反应性编程库</td>
+</tr>
+<tr>
+<td>Intel TBB</td>
+<td>Intel线程构件块</td>
+</tr>
+<tr>
+<td>Libclsph</td>
+<td>基于OpenCL的GPU加速SPH流体仿真库</td>
+</tr>
+<tr>
+<td>OpenCL</td>
+<td>并行编程的异构系统的开放标准</td>
+</tr>
+<tr>
+<td>OpenMP</td>
+<td>OpenMP API</td>
+</tr>
+<tr>
+<td>Thrust</td>
+<td>类似于C++标准模板库的并行算法库</td>
+</tr>
+<tr>
+<td>HPX</td>
+<td>用于任何规模的并行和分布式应用程序的通用C++运行时系统</td>
+</tr>
+<tr>
+<td>VexCL</td>
+<td>用于OpenCL/CUDA 的C++向量表达式模板库</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a><strong>容器</strong></h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>库</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C++ B-tree</td>
+<td>基于B树数据结构，实现命令内存容器的模板库</td>
+</tr>
+<tr>
+<td>Hashmaps</td>
+<td>C++中开放寻址哈希表算法的实现</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h1 id="密码学"><a href="#密码学" class="headerlink" title="密码学"></a><strong>密码学</strong></h1><ol>
+<li>Bcrypt ：一个跨平台的文件加密工具，加密文件可以移植到所有可支持的操作系统和处理器中。</li>
+<li>BeeCrypt：</li>
+<li>Botan： C++加密库</li>
+<li>Crypto++：一个有关加密方案的免费的C++库</li>
+<li>GnuPG： OpenPGP标准的完整实现</li>
+<li>GnuTLS ：实现了SSL，TLS和DTLS协议的安全通信库</li>
+<li>Libgcrypt</li>
+<li>libmcrypt</li>
+<li>LibreSSL：免费的SSL/TLS协议，属于2014 OpenSSL的一个分支</li>
+<li>LibTomCrypt：一个非常全面的，模块化的，可移植的加密工具</li>
+<li>libsodium：基于NaCI的加密库，固执己见，容易使用</li>
+<li>Nettle 底层的加密库</li>
+<li>OpenSSL ： 一个强大的，商用的，功能齐全的，开放源代码的加密库。</li>
+<li>Tiny AES128 in C ：用C实现的一个小巧，可移植的实现了AES128ESB的加密算法</li>
+</ol>
+<hr>
+<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a><strong>数据库</strong></h1><blockquote>
+<p>数据库，SQL服务器，ODBC驱动程序和工具</p>
+</blockquote>
+<ol>
+<li>hiberlite ：用于Sqlite3的C++对象关系映射</li>
+<li>Hiredis： 用于Redis数据库的很简单的C客户端库</li>
+<li>LevelDB： 快速键值存储库</li>
+<li>LMDB：符合数据库四大基本元素的嵌入键值存储</li>
+<li>MySQL++：封装了MySql的C API的C++ 包装器</li>
+<li>RocksDB：来自Facebook的嵌入键值的快速存储</li>
+<li>SQLite：一个完全嵌入式的，功能齐全的关系数据库，只有几百KB，可以正确包含到你的项目中。</li>
+</ol>
+<hr>
+<h1 id="调试"><a href="#调试" class="headerlink" title="调试"></a><strong>调试</strong></h1><blockquote>
+<p>调试库， 内存和资源泄露检测，单元测试</p>
+</blockquote>
+<ol>
+<li>Boost.Test：Boost测试库</li>
+<li>Catch：一个很时尚的，C++原生的框架，只包含头文件，用于单元测试，测试驱动开发和行为驱动开发。</li>
+<li>CppUnit：由JUnit移植过来的C++测试框架</li>
+<li>CTest：CMake测试驱动程序</li>
+<li>googletest：谷歌C++测试框架</li>
+<li>ig-debugheap：用于跟踪内存错误的多平台调试堆</li>
+<li>libtap：用C语言编写测试</li>
+<li>MemTrack —用于C++跟踪内存分配</li>
+<li>microprofile- 跨平台的网络试图分析器</li>
+<li>minUnit ：使用C写的迷你单元测试框架，只使用了两个宏</li>
+<li>Remotery：用于web视图的单一C文件分析器</li>
+<li>UnitTest++：轻量级的C++单元测试框架</li>
+</ol>
+<hr>
+<h1 id="游戏引擎"><a href="#游戏引擎" class="headerlink" title="游戏引擎"></a><strong>游戏引擎</strong></h1><ol>
+<li>Cocos2d-x ：一个跨平台框架，用于构建2D游戏，互动图书，演示和其他图形应用程序。</li>
+<li>Grit ：社区项目，用于构建一个免费的游戏引擎，实现开放的世界3D游戏。</li>
+<li>Irrlicht ：C++语言编写的开源高性能的实时#D引擎</li>
+<li>Polycode：C++实现的用于创建游戏的开源框架（与Lua绑定）。</li>
+</ol>
+<hr>
+<h1 id="图形用户界面"><a href="#图形用户界面" class="headerlink" title="图形用户界面"></a><strong>图形用户界面</strong></h1><ol>
+<li>CEGUI ： 很灵活的跨平台GUI库</li>
+<li>FLTK ：快速，轻量级的跨平台的C++GUI工具包。</li>
+<li>GTK+： 用于创建图形用户界面的跨平台工具包</li>
+<li>gtkmm ：用于受欢迎的GUI库GTK+的官方C++接口。</li>
+<li>imgui：拥有最小依赖关系的立即模式图形用户界面</li>
+<li>libRocket ：libRocket 是一个C++ HTML/CSS 游戏接口中间件</li>
+<li>MyGUI ：快速，灵活，简单的GUI</li>
+<li>Ncurses：终端用户界面</li>
+<li>QCustomPlot ：没有更多依赖关系的Qt绘图控件</li>
+<li>Qwt ：用户与技术应用的Qt 控件</li>
+<li>QwtPlot3D ：功能丰富的基于Qt/OpenGL的C++编程库，本质上提供了一群3D控件</li>
+<li>OtterUI ：OtterUI 是用于嵌入式系统和互动娱乐软件的用户界面开发解决方案</li>
+<li>PDCurses 包含源代码和预编译库的公共图形函数库</li>
+<li>wxWidgets C++库，允许开发人员使用一个代码库可以为widows， Mac OS X，Linux和其他平台创建应用程序</li>
+</ol>
+<hr>
+<h1 id="图形"><a href="#图形" class="headerlink" title="图形"></a><strong>图形</strong></h1><ol>
+<li>bgfx：跨平台的渲染库</li>
+<li>Cairo：支持多种输出设备的2D图形库</li>
+<li>Horde3D 一个小型的3D渲染和动画引擎</li>
+<li>magnum C++11和OpenGL 2D/3D 图形引擎</li>
+<li>Ogre 3D 用C++编写的一个面向场景，实时，灵活的3D渲染引擎（并非游戏引擎）</li>
+<li>OpenSceneGraph 具有高性能的开源3D图形工具包</li>
+<li>Panda3D 用于3D渲染和游戏开发的框架，用Python和C++编写。</li>
+<li>Skia 用于绘制文字，图形和图像的完整的2D图形库</li>
+<li>urho3d 跨平台的渲染和游戏引擎。</li>
+</ol>
+<hr>
+<h1 id="图像处理"><a href="#图像处理" class="headerlink" title="图像处理"></a><strong>图像处理</strong></h1><ol>
+<li>Boost.GIL：通用图像库</li>
+<li>CImg ：用于图像处理的小型开源C++工具包</li>
+<li>CxImage ：用于加载，保存，显示和转换的图像处理和转换库，可以处理的图片格式包括 BMP, JPEG, GIF, PNG, TIFF, MNG, ICO, PCX, TGA, WMF, WBMP, JBG, J2K。</li>
+<li>FreeImage ：开源库，支持现在多媒体应用所需的通用图片格式和其他格式。</li>
+<li>GDCM：Grassroots DICOM 库</li>
+<li>ITK：跨平台的开源图像分析系统</li>
+<li>Magick++：ImageMagick程序的C++接口</li>
+<li>MagickWnd：ImageMagick程序的C++接口</li>
+<li>OpenCV ： 开源计算机视觉类库</li>
+<li>tesseract-ocr：OCR引擎</li>
+<li>VIGRA ：用于图像分析通用C++计算机视觉库</li>
+<li>VTK ：用于3D计算机图形学，图像处理和可视化的开源免费软件系统。</li>
+</ol>
+<hr>
+<h1 id="国际化"><a href="#国际化" class="headerlink" title="国际化"></a><strong>国际化</strong></h1><ol>
+<li>gettext ：GNU `gettext’</li>
+<li>IBM ICU：提供Unicode 和全球化支持的C、C++ 和Java库</li>
+<li>libiconv ：用于不同字符编码之间的编码转换库</li>
+</ol>
+<hr>
+<h1 id="Jason"><a href="#Jason" class="headerlink" title="Jason"></a><strong>Jason</strong></h1><ol>
+<li>frozen ： C/C++的Jason解析生成器</li>
+<li>Jansson ：进行编解码和处理Jason数据的C语言库</li>
+<li>jbson ：C++14中构建和迭代BSON data,和Json 文档的库</li>
+<li>JeayeSON：非常健全的C++ JSON库，只包含头文件</li>
+<li>JSON++ ： C++ JSON 解析器</li>
+<li>json-parser：用可移植的ANSI C编写的JSON解析器，占用内存非常少</li>
+<li>json11 ：一个迷你的C++11 JSON库</li>
+<li>jute ：非常简单的C++ JSON解析器</li>
+<li>ibjson：C语言中的JSON解析和打印库，很容易和任何模型集成。</li>
+<li>libjson：轻量级的JSON库</li>
+<li>PicoJSON：C++中JSON解析序列化，只包含头文件</li>
+<li>qt-json ：用于JSON数据和 QVariant层次间的相互解析的简单类</li>
+<li>QJson：将JSON数据映射到QVariant对象的基于Qt的库</li>
+<li>RapidJSON： 用于C++的快速JSON 解析生成器，包含SAX和DOM两种风格的API</li>
+<li>YAJL ：C语言中快速流JSON解析库</li>
+</ol>
+<hr>
+<h1 id="日志"><a href="#日志" class="headerlink" title="日志"></a><strong>日志</strong></h1><ol>
+<li>Boost.Log ：设计非常模块化，并且具有扩展性</li>
+<li>easyloggingpp：C++日志库，只包含单一的头文件。</li>
+<li>Log4cpp ：一系列C++类库，灵活添加日志到文件，系统日志，IDSA和其他地方。</li>
+<li>templog：轻量级C++库，可以添加日志到你的C++应用程序中</li>
+</ol>
+<hr>
+<h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a><strong>机器学习</strong></h1><ol>
+<li>Caffe ：快速的神经网络框架</li>
+<li>CCV ：以C语言为核心的现代计算机视觉库</li>
+<li>mlpack ：可扩展的C++机器学习库</li>
+<li>OpenCV：开源计算机视觉库</li>
+<li>Recommender：使用协同过滤进行产品推荐/建议的C语言库。</li>
+<li>SHOGUN：Shogun 机器学习工具</li>
+<li>sofia-ml ：用于机器学习的快速增量算法套件</li>
+</ol>
+<hr>
+<h1 id="数学"><a href="#数学" class="headerlink" title="数学"></a><strong>数学</strong></h1><ol>
+<li>Armadillo ：高质量的C++线性代数库，速度和易用性做到了很好的平衡。语法和MatlAB很相似</li>
+<li>blaze：高性能的C++数学库，用于密集和稀疏算法。</li>
+<li>ceres-solver ：来自谷歌的C++库，用于建模和解决大型复杂非线性最小平方问题。</li>
+<li>CGal： 高效，可靠的集合算法集合</li>
+<li>cml ：用于游戏和图形的免费C++数学库</li>
+<li>Eigen ：高级C++模板头文件库，包括线性代数，矩阵，向量操作，数值解决和其他相关的算法。</li>
+<li>GMTL：数学图形模板库是一组广泛实现基本图形的工具。</li>
+<li>GMP：用于个高精度计算的C/C++库，处理有符号整数，有理数和浮点数。</li>
+</ol>
+<hr>
+<h1 id="多媒体"><a href="#多媒体" class="headerlink" title="多媒体"></a><strong>多媒体</strong></h1><ol>
+<li>GStreamer ：构建媒体处理组件图形的库</li>
+<li>LIVE555 Streaming Media ：使用开放标准协议(RTP/RTCP, RTSP, SIP) 的多媒体流库</li>
+<li>libVLC ：libVLC (VLC SDK)媒体框架</li>
+<li>QtAv：基于Qt和FFmpeg的多媒体播放框架，能够帮助你轻而易举地编写出一个播放器</li>
+<li>SDL ：简单直控媒体层</li>
+<li>SFML ：快速，简单的多媒体库</li>
+</ol>
+<hr>
+<h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a><strong>网络</strong></h1><ol>
+<li>ACE：C++面向对象网络变成工具包</li>
+<li>Boost.Asio：用于网络和底层I/O编程的跨平台的C++库</li>
+<li>Casablanca：C++ REST SDK</li>
+<li>cpp-netlib：高级网络编程的开源库集合</li>
+<li>Dyad.c：C语言的异步网络</li>
+<li>libcurl :多协议文件传输库</li>
+<li>Mongoose：非常轻量级的网络服务器</li>
+<li>Muduo ：用于Linux多线程服务器的C++非阻塞网络库</li>
+<li>net_skeleton ：C/C++的TCP 客户端/服务器库</li>
+<li>nope.c ：基于C语言的超轻型软件平台，用于可扩展的服务器端和网络应用。 对于C编程人员，可以考虑node.js</li>
+<li>Onion :C语言HTTP服务器库，其设计为轻量级，易使用。</li>
+<li>POCO：用于构建网络和基于互联网应用程序的C++类库，可以运行在桌面，服务器，移动和嵌入式系统。</li>
+<li>RakNet：为游戏开发人员提供的跨平台的开源C++网络引擎。</li>
+<li>Tuf o ：用于Qt之上的C++构建的异步Web框架。</li>
+<li>WebSocket++ ：基于C++/Boost Aiso的websocket 客户端/服务器库</li>
+<li>ZeroMQ ：高速，模块化的异步通信库</li>
+</ol>
+<hr>
+<h1 id="物理学"><a href="#物理学" class="headerlink" title="物理学"></a><strong>物理学</strong></h1><blockquote>
+<p>动力学仿真引擎</p>
+</blockquote>
+<ol>
+<li>Box2D：2D的游戏物理引擎。</li>
+<li>Bullet ：3D的游戏物理引擎。</li>
+<li>Chipmunk ：快速，轻量级的2D游戏物理库</li>
+<li>LiquidFun：2D的游戏物理引擎</li>
+<li>ODE ：开放动力学引擎-开源，高性能库，模拟刚体动力学。</li>
+<li>ofxBox2d：Box2D开源框架包装器。</li>
+<li>Simbody ：高性能C++多体动力学/物理库，模拟关节生物力学和机械系统，像车辆，机器人和人体骨骼。</li>
+</ol>
+<hr>
+<h1 id="机器人学"><a href="#机器人学" class="headerlink" title="机器人学"></a><strong>机器人学</strong></h1><ol>
+<li>MOOS-IvP ：一组开源C++模块，提供机器人平台的自主权，尤其是自主的海洋车辆。</li>
+<li>MRPT：移动机器人编程工具包</li>
+<li>PCL ：点云库是一个独立的，大规模的开放项目，用于2D/3D图像和点云处理。</li>
+<li>Robotics Library (RL)： 一个独立的C++库，包括机器人动力学，运动规划和控制。</li>
+<li>RobWork：一组C++库的集合，用于机器人系统的仿真和控制。</li>
+<li>ROS ：机器人操作系统，提供了一些库和工具帮助软件开发人员创建机器人应用程序。</li>
+</ol>
+<hr>
+<h1 id="科学计算"><a href="#科学计算" class="headerlink" title="科学计算"></a><strong>科学计算</strong></h1><ol>
+<li>FFTW :用一维或者多维计算DFT的C语言库。</li>
+<li>GSL：GNU科学库。</li>
+</ol>
+<hr>
+<h1 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a><strong>脚本</strong></h1><ol>
+<li>ChaiScript ：用于C++的易于使用的嵌入式脚本语言。</li>
+<li>Lua ：用于配置文件和基本应用程序脚本的小型快速脚本引擎。</li>
+<li>luacxx：用于创建Lua绑定的C++ 11 API</li>
+<li>SWIG ：一个可以让你的C++代码链接到JavaScript，Perl，PHP，Python，Tcl和Ruby的包装器/接口生成器</li>
+<li>V7：嵌入式的JavaScript 引擎。</li>
+<li>V8 ：谷歌的快速JavaScript引擎，可以被嵌入到任何C++应用程序中。</li>
+</ol>
+<hr>
+<h1 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a><strong>序列化</strong></h1><ol>
+<li>Cap’n Proto ：快速数据交换格式和RPC系统。</li>
+<li>cereal ：C++11 序列化库</li>
+<li>FlatBuffers ：内存高效的序列化库</li>
+<li>MessagePack ：C/C++的高效二进制序列化库，例如 JSON</li>
+<li>protobuf ：协议缓冲，谷歌的数据交换格式。</li>
+<li>protobuf-c ：C语言的协议缓冲实现</li>
+<li>SimpleBinaryEncoding：用于低延迟应用程序的对二进制格式的应用程序信息的编码和解码。</li>
+<li>Thrift ：高效的跨语言IPC/RPC，用于C++，Java，Python，PHP，C#和其它多种语言中，最初由Twitter开发。</li>
+</ol>
+<hr>
+<h1 id="视频"><a href="#视频" class="headerlink" title="视频"></a><strong>视频</strong></h1><ol>
+<li>libvpx ：VP8/VP9编码解码SDK</li>
+<li>FFmpeg ：一个完整的，跨平台的解决方案，用于记录，转换视频和音频流。</li>
+<li>libde265 ：开放的h.265视频编解码器的实现。</li>
+<li>OpenH264：开源H.364 编解码器。</li>
+<li>Theora ：免费开源的视频压缩格式。</li>
+</ol>
+<hr>
+<h1 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a><strong>虚拟机</strong></h1><ol>
+<li>CarpVM：C中有趣的VM，让我们一起来看看这个。</li>
+<li>MicroPython ：旨在实现单片机上Python3.x的实现</li>
+<li>TinyVM：用纯粹的ANSI C编写的小型，快速，轻量级的虚拟机。</li>
+</ol>
+<hr>
+<h1 id="Web应用框架"><a href="#Web应用框架" class="headerlink" title="Web应用框架"></a><strong>Web应用框架</strong></h1><ol>
+<li>Civetweb ：提供易于使用，强大的，C/C++嵌入式Web服务器，带有可选的CGI，SSL和Lua支持。</li>
+<li>CppCMS ：免费高性能的Web开发框架（不是 CMS）.</li>
+<li>Crow ：一个C++微型web框架（灵感来自于Python Flask）</li>
+<li>Kore :使用C语言开发的用于web应用程序的超快速和灵活的web服务器/框架。</li>
+<li>libOnion：轻量级的库，帮助你使用C编程语言创建web服务器。</li>
+<li>QDjango：使用C++编写的，基于Qt库的web框架，试图效仿Django API，因此得此名。</li>
+<li>Wt ：开发Web应用的C++库。</li>
+</ol>
+<hr>
+<h1 id="XML"><a href="#XML" class="headerlink" title="XML"></a><strong>XML</strong></h1><blockquote>
+<p>XML就是个垃圾，xml的解析很烦人，对于计算机它也是个灾难。这种糟糕的东西完全没有存在的理由了。-Linus Torvalds</p>
+</blockquote>
+<ol>
+<li>Expat ：用C语言编写的xml解析库</li>
+<li>Libxml2 ：Gnome的xml C解析器和工具包</li>
+<li>libxml++ ：C++的xml解析器</li>
+<li>PugiXML ：用于C++的，支持XPath的轻量级，简单快速的XML解析器。</li>
+<li>RapidXml ：试图创建最快速的XML解析器，同时保持易用性，可移植性和合理的W3C兼容性。</li>
+<li>TinyXML ：简单小型的C++XML解析器，可以很容易地集成到其它项目中。</li>
+<li>TinyXML2：简单快速的C++CML解析器，可以很容易集成到其它项目中。</li>
+<li>TinyXML++：TinyXML的一个全新的接口，使用了C++的许多许多优势，模板，异常和更好的异常处理。</li>
+<li>Xerces-C++ ：用可移植的C++的子集编写的XML验证解析器。</li>
+</ol>
+<hr>
+<h1 id="多项混杂"><a href="#多项混杂" class="headerlink" title="多项混杂"></a><strong>多项混杂</strong></h1><blockquote>
+<p>一些有用的库或者工具，但是不适合上面的分类，或者还没有分类。</p>
+</blockquote>
+<ol>
+<li>C++ Format ：C++的小型，安全和快速格式化库</li>
+<li>casacore ：从aips++ 派生的一系列C++核心库</li>
+<li>cxx-prettyprint：用于C++容器的打印库</li>
+<li>DynaPDF ：易于使用的PDF生成库</li>
+<li>gcc-poison ：帮助开发人员禁止应用程序中的不安全的C/C++函数的简单的头文件。</li>
+<li>googlemock：编写和使用C++模拟类的库</li>
+<li>HTTP Parser ：C的http请求/响应解析器</li>
+<li>libcpuid ：用于x86 CPU检测盒特征提取的小型C库</li>
+<li>libevil ：许可证管理器</li>
+<li>libusb：允许移动访问USB设备的通用USB库</li>
+<li>PCRE：正则表达式C库，灵感来自于Perl中正则表达式的功能。</li>
+<li>Remote Call Framework ：C++的进程间通信框架。</li>
+<li>Scintilla ：开源的代码编辑控件</li>
+<li>Serial Communication Library ：C++语言编写的跨平台，串口库。</li>
+<li>SDS：C的简单动态字符串库</li>
+<li>SLDR ：超轻的DNS解析器</li>
+<li>SLRE： 超轻的正则表达式库</li>
+<li>Stage ：移动机器人模拟器</li>
+<li>VarTypes：C++/Qt4功能丰富，面向对象的管理变量的框架。</li>
+<li>ZBar：‘条形码扫描器’库，可以扫描照片，图片和视频流中的条形码，并返回结果。</li>
+<li>CppVerbalExpressions ：易于使用的C++正则表达式</li>
+<li>QtVerbalExpressions：基于C++ VerbalExpressions 库的Qt库</li>
+<li>PHP-CPP：使用C++来构建PHP扩展的库</li>
+<li>Better String ：C的另一个字符串库，功能更丰富，但是没有缓冲溢出问题，还包含了一个C++包装器。</li>
+</ol>
+<hr>
+<h1 id="软件"><a href="#软件" class="headerlink" title="软件"></a><strong>软件</strong></h1><p>用于创建开发环境的软件</p>
+<hr>
+<h1 id="编译器"><a href="#编译器" class="headerlink" title="编译器"></a><strong>编译器</strong></h1><blockquote>
+<p>C/C++编译器列表</p>
+</blockquote>
+<ol>
+<li>Clang :由苹果公司开发的</li>
+<li>GCC：GNU编译器集合</li>
+<li>Intel C++ Compiler ：由英特尔公司开发</li>
+<li>LLVM ：模块化和可重用编译器和工具链技术的集合</li>
+<li>Microsoft Visual C++ ：MSVC，由微软公司开发</li>
+<li>Open WatCom ：Watcom，C，C++和Fortran交叉编译器和工具</li>
+<li>TCC ：轻量级的C语言编译器</li>
+</ol>
+<hr>
+<h1 id="在线编译器"><a href="#在线编译器" class="headerlink" title="在线编译器"></a><strong>在线编译器</strong></h1><blockquote>
+<p>在线C/C++编译器列表</p>
+</blockquote>
+<ol>
+<li>codepad ：在线编译器/解释器，一个简单的协作工具</li>
+<li>CodeTwist：一个简单的在线编译器/解释器，你可以粘贴的C,C++或者Java代码，在线执行并查看结果</li>
+<li>coliru ：在线编译器/shell， 支持各种C++编译器</li>
+<li>Compiler Explorer：交互式编译器，可以进行汇编输出</li>
+<li>CompileOnline：Linux上在线编译和执行C++程序</li>
+<li>Ideone ：一个在线编译器和调试工具，允许你在线编译源代码并执行，支持60多种编程语言。</li>
+</ol>
+<hr>
+<h1 id="调试器"><a href="#调试器" class="headerlink" title="调试器"></a><strong>调试器</strong></h1><blockquote>
+<p>C/C++调试器列表</p>
+</blockquote>
+<ol>
+<li>Comparison of debuggers ：来自维基百科的调试器列表</li>
+<li>GDB ：GNU调试器</li>
+<li>Valgrind：内存调试，内存泄露检测，性能分析工具。</li>
+</ol>
+<hr>
+<h1 id="集成开发环境（IDE）"><a href="#集成开发环境（IDE）" class="headerlink" title="集成开发环境（IDE）"></a><strong>集成开发环境（IDE）</strong></h1><blockquote>
+<p>C/C++集成开发环境列表</p>
+</blockquote>
+<ol>
+<li>AppCode ：构建与JetBrains’ IntelliJ IDEA 平台上的用于Objective-C，C,C++，Java和Java开发的集成开发环境</li>
+<li>CLion：来自JetBrains的跨平台的C/C++的集成开发环境</li>
+<li>Code::Blocks ：免费C，C++和Fortran的集成开发环境</li>
+<li>CodeLite ：另一个跨平台的免费的C/C++集成开发环境</li>
+<li>Dev-C++：可移植的C/C++/C++11集成开发环境</li>
+<li>Eclipse CDT：基于Eclipse平台的功能齐全的C和C++集成开发环境</li>
+<li>Geany ：轻量级的快速，跨平台的集成开发环境。</li>
+<li>IBM VisualAge ：来自IBM的家庭计算机集成开发环境。</li>
+<li>Irony-mode：由libclang驱动的用于Emacs的C/C++微模式</li>
+<li>KDevelop：免费开源集成开发环境</li>
+<li>Microsoft Visual Studio ：来自微软的集成开发环境</li>
+<li>NetBeans ：主要用于Java开发的的集成开发环境，也支持其他语言，尤其是PHP，C/C++和HTML5。</li>
+<li>Qt Creator：跨平台的C++，Javascript和QML集成开发环境，也是Qt SDK的一部分。</li>
+<li>rtags：C/C++的客户端服务器索引，用于 跟基于clang的emacs的集成</li>
+<li>Xcode ：由苹果公司开发</li>
+<li>YouCompleteMe：一个用于Vim的根据你敲的代码快速模糊搜索并进行代码补全的引擎。</li>
+</ol>
+<hr>
+<h1 id="构建系统"><a href="#构建系统" class="headerlink" title="构建系统"></a><strong>构建系统</strong></h1><ol>
+<li>Bear ：用于为clang工具生成编译数据库的工具</li>
+<li>Biicode：基于文件的简单依赖管理器。</li>
+<li>CMake ：跨平台的免费开源软件用于管理软件使用独立编译的方法进行构建的过程。</li>
+<li>CPM：基于CMake和Git的C++包管理器</li>
+<li>FASTBuild：高性能，开源的构建系统，支持高度可扩展性的编译，缓冲和网络分布。</li>
+<li>Ninja ：专注于速度的小型构建系统</li>
+<li>Scons ：使用Python scipt 配置的软件构建工具</li>
+<li>tundra ：高性能的代码构建系统，甚至对于非常大型的软件项目，也能提供最好的增量构建次数。</li>
+<li>tup：基于文件的构建系统，用于后台监控变化的文件。</li>
+</ol>
+<hr>
+<h1 id="静态代码分析"><a href="#静态代码分析" class="headerlink" title="静态代码分析"></a><strong>静态代码分析</strong></h1><blockquote>
+<p>提高质量，减少瑕疵的代码分析工具列表</p>
+</blockquote>
+<ol>
+<li>Cppcheck ：静态C/C++代码分析工具</li>
+<li>include-what-you-use ：使用clang进行代码分析的工具，可以#include在C和C++文件中。</li>
+<li>OCLint ：用于C，C++和Objective-C的静态源代码分析工具，用于提高质量，减少瑕疵。</li>
+<li>Clang Static Analyzer：查找C，C++和Objective-C程序bug的源代码分析工具</li>
+<li>List of tools for static code analysis ：来自维基百科的静态代码分析工具列表</li>
+</ol>
+</body></html></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:RhythmLian@outlook.com">RhythmLian</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://rhythmlian.cn/2020/04/22/cpp-lib/">https://rhythmlian.cn/2020/04/22/cpp-lib/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://rhythmlian.cn">RhythmLian's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="https://i.loli.net/2020/02/14/V8PMh4pwNurSifb.jpg" alt="微信"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="https://i.loli.net/2020/02/14/EX3L6tsTnDqzBkV.jpg" alt="支付宝"><div class="post-qr-code__desc">支付宝</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="https://vip1.loli.net/2020/02/23/vmdsVwXUJOa8iIS.png" alt="支付宝红包"><div class="post-qr-code__desc">支付宝红包</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2020/04/14/nat/"><img class="next_cover lazyload" data-src="https://i.loli.net/2020/04/14/fcZBnXAjbwPGxlk.png" onerror="onerror=null;src='https://i.loli.net/2020/02/14/POauzdiVcsDtU1G.jpg'"><div class="label">下一篇</div><div class="next_info"><span>使用NATAPP内网穿透！</span></div></a></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = false == true ? true : false;
+var verify = false == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'3pzqbKS5JOaLYwqhp7sHEU25-gzGzoHsz',
+  appKey:'dNDVNPSn5bKsw9X1rmq9YFfo',
+  placeholder:'Please leave your footprints',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang:'en',
+  recordIP: true
+});</script></div></div></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By RhythmLian</div><div class="icp"><a href="https://github.com/Rhythmicc" target="_blank" rel="noopener"><span>RhythmLian</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script id="ribbon" src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
