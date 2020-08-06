@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RhythmLian's Blog</title><meta name="description"><meta name="author" content="RhythmLian,RhythmLian@outlook.com"><meta name="copyright" content="RhythmLian"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="https://i.loli.net/2020/02/14/r2kUf4DVWNxcJAL.jpg"><link rel="canonical" href="https://rhythmlian.cn/page/4/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="RhythmLian's Blog"><meta property="og:url" content="https://rhythmlian.cn/page/4/"><meta property="og:site_name" content="RhythmLian's Blog"><meta property="og:description"><meta property="og:image" content="https://i.loli.net/2020/02/14/r2kUf4DVWNxcJAL.jpg"><meta property="article:published_time" content="2020-08-06T04:29:23.012Z"><meta property="article:modified_time" content="2020-08-06T04:29:23.012Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RhythmLian's Blog</title><meta name="description"><meta name="author" content="RhythmLian,RhythmLian@outlook.com"><meta name="copyright" content="RhythmLian"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="https://i.loli.net/2020/02/14/r2kUf4DVWNxcJAL.jpg"><link rel="canonical" href="https://rhythmlian.cn/page/4/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="RhythmLian's Blog"><meta property="og:url" content="https://rhythmlian.cn/page/4/"><meta property="og:site_name" content="RhythmLian's Blog"><meta property="og:description"><meta property="og:image" content="https://i.loli.net/2020/02/14/r2kUf4DVWNxcJAL.jpg"><meta property="article:published_time" content="2020-08-06T04:30:16.461Z"><meta property="article:modified_time" content="2020-08-06T04:30:16.461Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
   document.documentElement.setAttribute('data-theme', 'dark')
   if (document.querySelector('meta[name="theme-color"]') !== null) {
     document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
@@ -92,7 +92,7 @@ if (autoChangeMode === '1') {
   isHome: true,
   isHighlightShrink: false,
   isSidebar: false,
-  postUpdate: '2020-08-06 12:29:23'
+  postUpdate: '2020-08-06 12:30:16'
 }</script><noscript><style>
 #nav {
   opacity: 1
@@ -132,7 +132,32 @@ function panguInit () {
   }
 }
 
-document.addEventListener('DOMContentLoaded', panguFn)</script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+document.addEventListener('DOMContentLoaded', panguFn)</script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>function subtitleType () {
+  $.getJSON('https://v1.hitokoto.cn', function (data) {
+    if (true) {
+      var from = '出自 ' + data.from
+      var sub = "".length == 0 ? new Array() : "".split(',')
+      var both = sub.unshift(data.hitokoto, from)
+      var typed = new Typed('#subtitle', {
+        strings: sub,
+        startDelay: 300,
+        typeSpeed: 150,
+        loop: true,
+        backSpeed: 50,
+      })
+    } else {
+      document.getElementById('subtitle').innerHTML = data.hitokoto
+    }
+  })
+}
+
+if (true) {
+  if (typeof Typed === 'function') subtitleType()
+  else $.getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js', subtitleType)
+} else {
+  subtitleType()
+}
+</script><script>if (document.getElementsByClassName('mermaid').length) {
   if (window.mermaidJsLoad) mermaid.init()
   else {
     $.getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', function () {
