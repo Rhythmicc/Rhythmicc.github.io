@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>QuickStart_Rhy中文文档 | RhythmLian's Blog</title><meta name="description" content="English Document | 中文文档  安装1pip3 install quickstart-rhy [--upgrade] 使用    命令 含义     qs -u url 使用默认浏览器打开多个链接   qs -a app [files] 打开应用或使用应用打开文件（仅支持Mac OS）   qs -f file 使用合适的应用打开文件   qs -trans [words] 翻译"><meta name="keywords" content="Python开源库文档"><meta name="author" content="RhythmLian,RhythmLian@outlook.com"><meta name="copyright" content="RhythmLian"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="https://i.loli.net/2020/02/14/r2kUf4DVWNxcJAL.jpg"><link rel="canonical" href="https://rhythmlian.cn/2020/08/09/QuickStart-Rhy-zh/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="QuickStart_Rhy中文文档"><meta property="og:url" content="https://rhythmlian.cn/2020/08/09/QuickStart-Rhy-zh/"><meta property="og:site_name" content="RhythmLian's Blog"><meta property="og:description" content="English Document | 中文文档  安装1pip3 install quickstart-rhy [--upgrade] 使用    命令 含义     qs -u url 使用默认浏览器打开多个链接   qs -a app [files] 打开应用或使用应用打开文件（仅支持Mac OS）   qs -f file 使用合适的应用打开文件   qs -trans [words] 翻译"><meta property="og:image" content="https://tx-rhythm-1257451806.cos.ap-beijing.myqcloud.com/logo-large.72ad8bf1.svg"><meta property="article:published_time" content="2020-08-08T19:31:58.000Z"><meta property="article:modified_time" content="2020-08-08T20:07:24.288Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>QuickStart_Rhy中文文档 | RhythmLian's Blog</title><meta name="description" content="English Document | 中文文档  安装1pip3 install quickstart-rhy [--upgrade] qs的配置表：.qsrc 在qs 3.0版本起，当您初次安装QuickStart_Rhy并通过命令运行qs时，qs将在如下位置生成qs的配置表.qsrc      系统 位置     Windows C:\Users\你的用户名\.qsrc   *nix &#x2F;Use"><meta name="keywords" content="Python开源库文档"><meta name="author" content="RhythmLian,RhythmLian@outlook.com"><meta name="copyright" content="RhythmLian"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="https://i.loli.net/2020/02/14/r2kUf4DVWNxcJAL.jpg"><link rel="canonical" href="https://rhythmlian.cn/2020/08/09/QuickStart-Rhy-zh/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="QuickStart_Rhy中文文档"><meta property="og:url" content="https://rhythmlian.cn/2020/08/09/QuickStart-Rhy-zh/"><meta property="og:site_name" content="RhythmLian's Blog"><meta property="og:description" content="English Document | 中文文档  安装1pip3 install quickstart-rhy [--upgrade] qs的配置表：.qsrc 在qs 3.0版本起，当您初次安装QuickStart_Rhy并通过命令运行qs时，qs将在如下位置生成qs的配置表.qsrc      系统 位置     Windows C:\Users\你的用户名\.qsrc   *nix &#x2F;Use"><meta property="og:image" content="https://tx-rhythm-1257451806.cos.ap-beijing.myqcloud.com/logo-large.72ad8bf1.svg"><meta property="article:published_time" content="2020-08-08T19:31:58.000Z"><meta property="article:modified_time" content="2020-08-10T06:18:38.167Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
   document.documentElement.setAttribute('data-theme', 'dark')
   if (document.querySelector('meta[name="theme-color"]') !== null) {
     document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
@@ -92,7 +92,7 @@ if (autoChangeMode === '1') {
   isHome: false,
   isHighlightShrink: false,
   isSidebar: true,
-  postUpdate: '2020-08-09 04:07:24'
+  postUpdate: '2020-08-10 14:18:38'
 }</script><noscript><style>
 #nav {
   opacity: 1
@@ -101,144 +101,300 @@ if (autoChangeMode === '1') {
   opacity: 1
 }
 </style></noscript><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="RhythmLian's Blog" type="application/atom+xml">
-</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="https://i.loli.net/2020/02/14/r2kUf4DVWNxcJAL.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">27</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">11</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="http://www.wumfast.com/auth/register?code=84174" target="_blank" rel="noopener"><i class="fa-fw fa fa-rocket"></i><span> VPN</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-folder"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 照片</span></a></li><li><a class="site-page" href="/source/"><i class="fa-fw fa fa-link"></i><span> 资源</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新功能-netinfo-upimg"><span class="toc-number">3.</span> <span class="toc-text">新功能: netinfo, upimg!</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#netinfo"><span class="toc-number">3.1.</span> <span class="toc-text">netinfo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#upimg"><span class="toc-number">3.2.</span> <span class="toc-text">upimg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bcv"><span class="toc-number">3.3.</span> <span class="toc-text">bcv</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#好消息"><span class="toc-number">4.</span> <span class="toc-text">好消息!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">5.</span> <span class="toc-text">API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#支持的-API"><span class="toc-number">5.1.</span> <span class="toc-text">支持的 API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API-用法"><span class="toc-number">5.2.</span> <span class="toc-text">API 用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#rmbg"><span class="toc-number">5.2.1.</span> <span class="toc-text">rmbg</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#smms"><span class="toc-number">5.2.2.</span> <span class="toc-text">smms</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Aliyun-OSS"><span class="toc-number">5.2.3.</span> <span class="toc-text">Aliyun OSS</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#样例"><span class="toc-number">5.2.3.1.</span> <span class="toc-text">样例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Qiniu-OSS"><span class="toc-number">5.2.4.</span> <span class="toc-text">Qiniu OSS</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#样例-1"><span class="toc-number">5.2.4.1.</span> <span class="toc-text">样例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tencent-COS"><span class="toc-number">5.2.5.</span> <span class="toc-text">Tencent COS</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#样例-2"><span class="toc-number">5.2.5.1.</span> <span class="toc-text">样例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ipinfo"><span class="toc-number">5.2.6.</span> <span class="toc-text">ipinfo</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#样例-3"><span class="toc-number">5.2.6.1.</span> <span class="toc-text">样例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tencent-Translate"><span class="toc-number">5.2.7.</span> <span class="toc-text">Tencent Translate</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#样例-4"><span class="toc-number">5.2.7.1.</span> <span class="toc-text">样例</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发者工具"><span class="toc-number">6.</span> <span class="toc-text">开发者工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageTools"><span class="toc-number">6.1.</span> <span class="toc-text">ImageTools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NetTools"><span class="toc-number">6.2.</span> <span class="toc-text">NetTools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadTools"><span class="toc-number">6.3.</span> <span class="toc-text">ThreadTools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TuiTools"><span class="toc-number">6.4.</span> <span class="toc-text">TuiTools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wrappers"><span class="toc-number">6.5.</span> <span class="toc-text">Wrappers</span></a></li></ol></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://tx-rhythm-1257451806.cos.ap-beijing.myqcloud.com/logo-large.72ad8bf1.svg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">RhythmLian's Blog</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="http://www.wumfast.com/auth/register?code=84174" target="_blank" rel="noopener"><i class="fa-fw fa fa-rocket"></i><span> VPN</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-folder"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 照片</span></a></li><li><a class="site-page" href="/source/"><i class="fa-fw fa fa-link"></i><span> 资源</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">QuickStart_Rhy中文文档</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-08T19:31:58.000Z" title="发表于 2020-08-09 03:31:58">2020-08-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-08-08T20:07:24.288Z" title="更新于 2020-08-09 04:07:24">2020-08-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%96%87%E6%A1%A3/">文档</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p><a href="/2020/02/14/QuickStart-Rhy/">English Document</a> | 中文文档 </p>
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="https://i.loli.net/2020/02/14/r2kUf4DVWNxcJAL.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">27</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">11</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="http://www.wumfast.com/auth/register?code=84174" target="_blank" rel="noopener"><i class="fa-fw fa fa-rocket"></i><span> VPN</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-folder"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 照片</span></a></li><li><a class="site-page" href="/source/"><i class="fa-fw fa fa-link"></i><span> 资源</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#qs的配置表：-qsrc"><span class="toc-number">1.1.</span> <span class="toc-text">qs的配置表：.qsrc</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新功能-netinfo-upimg"><span class="toc-number">3.</span> <span class="toc-text">新功能: netinfo, upimg!</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#netinfo"><span class="toc-number">3.1.</span> <span class="toc-text">netinfo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#upimg"><span class="toc-number">3.2.</span> <span class="toc-text">upimg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bcv"><span class="toc-number">3.3.</span> <span class="toc-text">bcv</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#好消息"><span class="toc-number">4.</span> <span class="toc-text">好消息!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">5.</span> <span class="toc-text">API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#支持的-API"><span class="toc-number">5.1.</span> <span class="toc-text">支持的 API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API-用法"><span class="toc-number">5.2.</span> <span class="toc-text">API 用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#rmbg"><span class="toc-number">5.2.1.</span> <span class="toc-text">rmbg</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#smms"><span class="toc-number">5.2.2.</span> <span class="toc-text">smms</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Aliyun-OSS"><span class="toc-number">5.2.3.</span> <span class="toc-text">Aliyun OSS</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#样例"><span class="toc-number">5.2.3.1.</span> <span class="toc-text">样例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Qiniu-OSS"><span class="toc-number">5.2.4.</span> <span class="toc-text">Qiniu OSS</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#样例-1"><span class="toc-number">5.2.4.1.</span> <span class="toc-text">样例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tencent-COS"><span class="toc-number">5.2.5.</span> <span class="toc-text">Tencent COS</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#样例-2"><span class="toc-number">5.2.5.1.</span> <span class="toc-text">样例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ipinfo"><span class="toc-number">5.2.6.</span> <span class="toc-text">ipinfo</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#样例-3"><span class="toc-number">5.2.6.1.</span> <span class="toc-text">样例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tencent-Translate"><span class="toc-number">5.2.7.</span> <span class="toc-text">Tencent Translate</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#样例-4"><span class="toc-number">5.2.7.1.</span> <span class="toc-text">样例</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发者工具"><span class="toc-number">6.</span> <span class="toc-text">开发者工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageTools"><span class="toc-number">6.1.</span> <span class="toc-text">ImageTools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NetTools"><span class="toc-number">6.2.</span> <span class="toc-text">NetTools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadTools"><span class="toc-number">6.3.</span> <span class="toc-text">ThreadTools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TuiTools"><span class="toc-number">6.4.</span> <span class="toc-text">TuiTools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wrappers"><span class="toc-number">6.5.</span> <span class="toc-text">Wrappers</span></a></li></ol></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://tx-rhythm-1257451806.cos.ap-beijing.myqcloud.com/logo-large.72ad8bf1.svg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">RhythmLian's Blog</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="http://www.wumfast.com/auth/register?code=84174" target="_blank" rel="noopener"><i class="fa-fw fa fa-rocket"></i><span> VPN</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-folder"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 照片</span></a></li><li><a class="site-page" href="/source/"><i class="fa-fw fa fa-link"></i><span> 资源</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">QuickStart_Rhy中文文档</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-08T19:31:58.000Z" title="发表于 2020-08-09 03:31:58">2020-08-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-08-10T06:18:38.167Z" title="更新于 2020-08-10 14:18:38">2020-08-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%96%87%E6%A1%A3/">文档</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p><a href="/2020/02/14/QuickStart-Rhy/">English Document</a> | 中文文档 </p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install quickstart-rhy [--upgrade]</span><br></pre></td></tr></table></figure>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><div class="table-container">
+<h3 id="qs的配置表：-qsrc"><a href="#qs的配置表：-qsrc" class="headerlink" title="qs的配置表：.qsrc"></a>qs的配置表：<code>.qsrc</code></h3><ul>
+<li>在qs 3.0版本起，当您初次安装QuickStart_Rhy并通过命令运行<code>qs</code>时，<code>qs</code>将在如下位置生成qs的配置表<code>.qsrc</code></li>
+</ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:left">命令</th>
-<th style="text-align:left">含义</th>
+<th>系统</th>
+<th>位置</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><code>qs -u url</code></td>
-<td style="text-align:left">使用默认浏览器打开多个链接</td>
+<td>Windows</td>
+<td>C:\Users\<code>你的用户名</code>\.qsrc</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -a app [files]</code></td>
-<td style="text-align:left">打开应用或使用应用打开文件（仅支持Mac OS）</td>
+<td>*nix</td>
+<td>/Users/<code>你的用户名</code>/.qsrc</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><code>.qsrc</code>是以json格式存储的配置表，当它初次被生成时，内容为：</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 文档中的注释内容在文件中不存在 */</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"basic_settings"</span>: &#123;</span><br><span class="line">    <span class="attr">"default_language"</span>: <span class="string">"zh"</span>,                                      <span class="comment">/* !默认语言，zh表示中文，en为英文*/</span></span><br><span class="line">    <span class="attr">"default_translate_engine"</span>: &#123;                                  <span class="comment">/* !默认语言引擎，请勿修改support*/</span></span><br><span class="line">      <span class="attr">"index"</span>: <span class="number">0</span>,</span><br><span class="line">      <span class="attr">"support"</span>: [<span class="string">"default"</span>, <span class="string">"TencentCloud"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"API_settings"</span>: &#123;                                                <span class="comment">/* 填入你需要用的API KEY        */</span></span><br><span class="line">    <span class="attr">"rmbg"</span>: <span class="string">"GET: https://www.remove.bg"</span>,</span><br><span class="line">    <span class="attr">"smms"</span>: <span class="string">"GET: https://sm.ms"</span>,</span><br><span class="line">    <span class="attr">"darksky"</span>: <span class="string">"GET: https://darksky.net/"</span>,</span><br><span class="line">    <span class="attr">"aliyun_oss_acid"</span>: <span class="string">"GET: https://www.aliyun.com/product/oss"</span>,</span><br><span class="line">    <span class="attr">"aliyun_oss_ackey"</span>: <span class="string">"GET: https://www.aliyun.com/product/oss"</span>,</span><br><span class="line">    <span class="attr">"aliyun_oss_bucket_url"</span>: <span class="string">"GET: https://www.aliyun.com/product/oss"</span>,</span><br><span class="line">    <span class="attr">"aliyun_oss_df_bucket"</span>: <span class="string">"GET: https://www.aliyun.com/product/oss"</span>,</span><br><span class="line">    <span class="attr">"txyun_scid"</span>: <span class="string">"GET: https://console.cloud.tencent.com/"</span>,</span><br><span class="line">    <span class="attr">"txyun_sckey"</span>: <span class="string">"GET: https://console.cloud.tencent.com/"</span>,</span><br><span class="line">    <span class="attr">"txyun_cos_df_bucket"</span>: <span class="string">"GET: https://console.cloud.tencent.com/"</span>,</span><br><span class="line">    <span class="attr">"txyun_df_region"</span>: <span class="string">"GET: ap-[location]"</span>,</span><br><span class="line">    <span class="attr">"qiniu_ac_key"</span>: <span class="string">"GET: http://qiniu.com/"</span>,</span><br><span class="line">    <span class="attr">"qiniu_sc_key"</span>: <span class="string">"GET: http://qiniu.com/"</span>,</span><br><span class="line">    <span class="attr">"qiniu_bk_name"</span>: <span class="string">"GET: [Qiniu Bucket Name]"</span>,</span><br><span class="line">    <span class="attr">"gitee"</span>: <span class="string">"GET: http://gitee.com/"</span>,</span><br><span class="line">    <span class="attr">"ipinfo"</span>: <span class="string">"GET: https://ipinfo.io/"</span>,</span><br><span class="line">    <span class="attr">"AipImageAPP_ID"</span>: <span class="string">"GET: https://cloud.baidu.com/product/imageprocess"</span>,</span><br><span class="line">    <span class="attr">"AipImageAPP_KEY"</span>: <span class="string">"GET: https://cloud.baidu.com/product/imageprocess"</span>,</span><br><span class="line">    <span class="attr">"AipImageSECRET_KEY"</span>: <span class="string">"GET: https://cloud.baidu.com/product/imageprocess"</span>,</span><br><span class="line">    <span class="attr">"AipNlpAPP_ID"</span> : <span class="string">"GET: https://cloud.baidu.com/product/nlp_apply"</span>,</span><br><span class="line">    <span class="attr">"AipNlpAPP_KEY"</span>: <span class="string">"GET: https://cloud.baidu.com/product/nlp_apply"</span>,</span><br><span class="line">    <span class="attr">"AipNlpSECRET_KEY"</span>: <span class="string">"GET: https://cloud.baidu.com/product/nlp_apply"</span>,</span><br><span class="line">    <span class="attr">"seafile_communicate_path"</span>: <span class="string">"GET: /Path/to/file"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>关于默认语言：</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">标志</th>
+<th style="text-align:center">语言</th>
+<th style="text-align:center">标志</th>
+<th style="text-align:center">语言</th>
+<th style="text-align:center">标志</th>
+<th style="text-align:center">语言</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">zh</td>
+<td style="text-align:center">🇨🇳</td>
+<td style="text-align:center">en</td>
+<td style="text-align:center">🇬🇧</td>
+<td style="text-align:center">jp</td>
+<td style="text-align:center">🇯🇵</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -f file</code></td>
-<td style="text-align:left">使用合适的应用打开文件</td>
+<td style="text-align:center">kor</td>
+<td style="text-align:center">🇰🇷</td>
+<td style="text-align:center">fra</td>
+<td style="text-align:center">🇫🇷</td>
+<td style="text-align:center">spa</td>
+<td style="text-align:center">🇪🇸</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -trans [words]</code></td>
-<td style="text-align:left">翻译命令参数或剪切板中的内容</td>
+<td style="text-align:center">th</td>
+<td style="text-align:center">🇹🇭</td>
+<td style="text-align:center">ara</td>
+<td style="text-align:center">阿拉伯</td>
+<td style="text-align:center">ru</td>
+<td style="text-align:center">🇷🇺</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -time</code></td>
-<td style="text-align:left">查看当前时间</td>
+<td style="text-align:center">pt</td>
+<td style="text-align:center">🇵🇹</td>
+<td style="text-align:center">de</td>
+<td style="text-align:center">🇩🇪</td>
+<td style="text-align:center">it</td>
+<td style="text-align:center">🇮🇹</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -http [ip:port] [-bind url]</code></td>
-<td style="text-align:left">在当前路径下开启多线程http服务</td>
+<td style="text-align:center">el</td>
+<td style="text-align:center">🇬🇷</td>
+<td style="text-align:center">nl</td>
+<td style="text-align:center">🇵🇱</td>
+<td style="text-align:center">bul</td>
+<td style="text-align:center">🇧🇬</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -netinfo [url ...]</code></td>
-<td style="text-align:left">获取命令参数或剪切板中链接或ip的信息</td>
+<td style="text-align:center">est</td>
+<td style="text-align:center">🇪🇪</td>
+<td style="text-align:center">dan</td>
+<td style="text-align:center">🇩🇰</td>
+<td style="text-align:center">fin</td>
+<td style="text-align:center">🇫🇮</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -top</code></td>
-<td style="text-align:left">CPU和内存监控器</td>
+<td style="text-align:center">cs</td>
+<td style="text-align:center">🇨🇿</td>
+<td style="text-align:center">rom</td>
+<td style="text-align:center">🇷🇴</td>
+<td style="text-align:center">slo</td>
+<td style="text-align:center">🇸🇮</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -cal exp</code></td>
-<td style="text-align:left">计算算术表达式</td>
+<td style="text-align:center">swe</td>
+<td style="text-align:center">🇸🇪</td>
+<td style="text-align:center">hu</td>
+<td style="text-align:center">🇭🇺</td>
+<td style="text-align:center">vie</td>
+<td style="text-align:center">🇻🇳</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>关于<a href="#API">API</a>，某些API需要依赖官方提供的Python第三方库，但并不是每位用户都会用到它们，为了保持qs安装时的轻松畅快，qs在安装时不会将这些Python第三方库作为依赖项预先安装。因此，如果你需要使用相关的API，请在下方的API对照表中选择安装。</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>含义</th>
+<th>类别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>qs -u url</code></td>
+<td>使用默认浏览器打开多个链接</td>
+<td>基础</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -rmbg picture</code></td>
-<td style="text-align:left">移除图片背景</td>
+<td><code>qs -a app [files]</code></td>
+<td>打开应用或使用应用打开文件（仅支持Mac OS）</td>
+<td>基础</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -stbg picture to [from]</code></td>
-<td style="text-align:left">替换图片颜色（from默认为透明）</td>
+<td><code>qs -f file</code></td>
+<td>使用合适的应用打开文件</td>
+<td>基础</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -smms picture/*.md</code></td>
-<td style="text-align:left">将图片或Markdown中图片上传至sm.ms</td>
+<td><code>qs -cal exp</code></td>
+<td>计算算术表达式</td>
+<td>基础</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -upimg -help</code></td>
-<td style="text-align:left">将图片或Markdown中图片上传至多平台（暂无需token）</td>
+<td><code>qs -time</code></td>
+<td>查看当前时间</td>
+<td>基础</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -alioss -help</code></td>
-<td style="text-align:left">获取阿里云对象存储的使用帮助</td>
+<td><code>qs -top</code></td>
+<td>CPU和内存监控器</td>
+<td>系统</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -txcos -help</code></td>
-<td style="text-align:left">获取腾讯云对象存储的使用帮助</td>
+<td><code>qs -clear</code></td>
+<td>释放本机内存</td>
+<td>系统</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -qiniu -help</code></td>
-<td style="text-align:left">获取七牛云对象存储的使用帮助</td>
+<td><code>qs -mktar path ...</code></td>
+<td>使用多个文件或文件夹创建tar压缩包</td>
+<td>系统</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -weather [address]</code></td>
-<td style="text-align:left">获取当地天气（或指定地址天气）</td>
+<td><code>qs -untar path ...</code></td>
+<td>解压各种格式的tar包</td>
+<td>系统</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -LG image</code></td>
-<td style="text-align:left">通过百度图像效果增强放大图片</td>
+<td><code>qs -mkzip path ...</code></td>
+<td>使用多个文件或文件夹创建zip压缩包</td>
+<td>系统</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -dl [urls]</code></td>
-<td style="text-align:left">从命令参数或剪切板中链接下载文件 (<a href="https://rhythmlian.cn/2020/03/23/qs-dl/">qs下载策略</a>)</td>
+<td><code>qs -unzip path ...</code></td>
+<td>解压zip压缩包</td>
+<td>系统</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -mktar path ...</code></td>
-<td style="text-align:left">使用多个文件或文件夹创建tar压缩包</td>
+<td><code>qs -unrar path ...</code></td>
+<td>解压rar压缩包</td>
+<td>系统</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -untar path ...</code></td>
-<td style="text-align:left">解压各种格式的tar包</td>
+<td><code>qs -http [ip:port] [-bind url]</code></td>
+<td>在当前路径下开启简单的多线程http服务</td>
+<td>网络</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -mkzip path ...</code></td>
-<td style="text-align:left">使用多个文件或文件夹创建zip压缩包</td>
+<td><code>qs -netinfo [url ...]</code></td>
+<td>获取命令参数或剪切板中链接或ip的信息</td>
+<td>网络</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -unzip path ...</code></td>
-<td style="text-align:left">解压zip压缩包</td>
+<td><code>qs -dl [urls]</code></td>
+<td>从命令参数或剪切板中链接下载文件 (<a href="https://rhythmlian.cn/2020/03/23/qs-dl/">qs下载策略</a>)</td>
+<td>网络</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -unrar path ...</code></td>
-<td style="text-align:left">解压rar压缩包</td>
+<td><code>qs -upload</code></td>
+<td>上传你的pypi仓库</td>
+<td>网络</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -v2gif video [sz] [fps]</code></td>
-<td style="text-align:left">将视频导出为gif</td>
+<td><code>qs -upgrade</code></td>
+<td>更新qs</td>
+<td>网络</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -v2mp4 video</code></td>
-<td style="text-align:left">将视频导出为mp4</td>
+<td><code>qs -trans [words]</code></td>
+<td>翻译命令参数或剪切板中的内容</td>
+<td>API</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -rmaudio video</code></td>
-<td style="text-align:left">删除mp4文件音频</td>
+<td><code>qs -rmbg picture</code></td>
+<td>移除图片背景</td>
+<td>API</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -upload</code></td>
-<td style="text-align:left">上传你的pypi仓库</td>
+<td><code>qs -smms picture/*.md</code></td>
+<td>将图片或Markdown中图片上传至sm.ms</td>
+<td>API</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -upgrade</code></td>
-<td style="text-align:left">更新qs</td>
+<td><code>qs -upimg -help</code></td>
+<td>将图片或Markdown中图片上传至多平台（暂无需token）</td>
+<td>API</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -pasteme [get/post] [password/content]</code></td>
-<td style="text-align:left">通过pasteme get或post信息</td>
+<td><code>qs -alioss -help</code></td>
+<td>获取阿里云对象存储的使用帮助</td>
+<td>API</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -sea &lt;method&gt; [msg]</code></td>
-<td style="text-align:left">通过Seafile get或post信息</td>
+<td><code>qs -txcos -help</code></td>
+<td>获取腾讯云对象存储的使用帮助</td>
+<td>API</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>qs -bcv [url/video code]</code></td>
-<td style="text-align:left">获取B站视频、直播封面图片</td>
+<td><code>qs -qiniu -help</code></td>
+<td>获取七牛云对象存储的使用帮助</td>
+<td>API</td>
+</tr>
+<tr>
+<td><code>qs -weather [address]</code></td>
+<td>获取当地天气（或指定地址天气）</td>
+<td>API</td>
+</tr>
+<tr>
+<td><code>qs -LG image</code></td>
+<td>通过百度图像效果增强放大图片</td>
+<td>API</td>
+</tr>
+<tr>
+<td><code>qs -nlp [words]</code></td>
+<td>通过百度NLP对<code>words</code>或剪切板内容纠错</td>
+<td>API</td>
+</tr>
+<tr>
+<td><code>qs -sea get/post [msg]</code></td>
+<td>通过Seafile获取或传递内容</td>
+<td>API</td>
+</tr>
+<tr>
+<td><code>qs -pasteme get/post [password/content]</code></td>
+<td>通过pasteme.cn获取或传递内容</td>
+<td>API</td>
+</tr>
+<tr>
+<td><code>qs -bcv [url/video code]</code></td>
+<td>获取B站视频、直播封面图片</td>
+<td>API</td>
+</tr>
+<tr>
+<td><code>qs -stbg picture to [from]</code></td>
+<td>替换图片颜色（from默认为透明）</td>
+<td>图像</td>
+</tr>
+<tr>
+<td><code>qs -v2gif video [sz] [fps]</code></td>
+<td>将视频导出为gif</td>
+<td>图像</td>
+</tr>
+<tr>
+<td><code>qs -v2mp4 video</code></td>
+<td>将视频导出为mp4</td>
+<td>图像</td>
+</tr>
+<tr>
+<td><code>qs -rmaudio video</code></td>
+<td>删除视频的音频（仅返回mp4文件）</td>
+<td>图像</td>
 </tr>
 </tbody>
 </table>
@@ -348,10 +504,6 @@ if (autoChangeMode === '1') {
 </tbody>
 </table>
 </div>
-<ul>
-<li><code>.qsrc</code> 样例:</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"basic_settings"</span>: &#123;</span><br><span class="line">    <span class="attr">"default_language"</span>: <span class="string">"zh"</span>,</span><br><span class="line">    <span class="attr">"default_translate_engine"</span>: &#123;</span><br><span class="line">      <span class="attr">"index"</span>: <span class="number">0</span>,</span><br><span class="line">      <span class="attr">"support"</span>: [<span class="string">"default"</span>, <span class="string">"TencentCloud"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"API_settings"</span>: &#123;</span><br><span class="line">    <span class="attr">"rmbg"</span>: <span class="string">"GET: https://www.remove.bg"</span>,</span><br><span class="line">    <span class="attr">"smms"</span>: <span class="string">"GET: https://sm.ms"</span>,</span><br><span class="line">    <span class="attr">"darksky"</span>: <span class="string">"GET: https://darksky.net/"</span>,</span><br><span class="line">    <span class="attr">"aliyun_oss_acid"</span>: <span class="string">"GET: https://www.aliyun.com/product/oss"</span>,</span><br><span class="line">    <span class="attr">"aliyun_oss_ackey"</span>: <span class="string">"GET: https://www.aliyun.com/product/oss"</span>,</span><br><span class="line">    <span class="attr">"aliyun_oss_bucket_url"</span>: <span class="string">"GET: https://www.aliyun.com/product/oss"</span>,</span><br><span class="line">    <span class="attr">"aliyun_oss_df_bucket"</span>: <span class="string">"GET: https://www.aliyun.com/product/oss"</span>,</span><br><span class="line">    <span class="attr">"txyun_scid"</span>: <span class="string">"GET: https://console.cloud.tencent.com/"</span>,</span><br><span class="line">    <span class="attr">"txyun_sckey"</span>: <span class="string">"GET: https://console.cloud.tencent.com/"</span>,</span><br><span class="line">    <span class="attr">"txyun_cos_df_bucket"</span>: <span class="string">"GET: https://console.cloud.tencent.com/"</span>,</span><br><span class="line">    <span class="attr">"txyun_df_region"</span>: <span class="string">"GET: ap-[location]"</span>,</span><br><span class="line">    <span class="attr">"qiniu_ac_key"</span>: <span class="string">"GET: http://qiniu.com/"</span>,</span><br><span class="line">    <span class="attr">"qiniu_sc_key"</span>: <span class="string">"GET: http://qiniu.com/"</span>,</span><br><span class="line">    <span class="attr">"qiniu_bk_name"</span>: <span class="string">"GET: [Qiniu Bucket Name]"</span>,</span><br><span class="line">    <span class="attr">"gitee"</span>: <span class="string">"GET: http://gitee.com/"</span>,</span><br><span class="line">    <span class="attr">"ipinfo"</span>: <span class="string">"GET: https://ipinfo.io/"</span>,</span><br><span class="line">    <span class="attr">"AipImageAPP_ID"</span>: <span class="string">"GET: https://cloud.baidu.com/product/imageprocess"</span>,</span><br><span class="line">    <span class="attr">"AipImageAPP_KEY"</span>: <span class="string">"GET: https://cloud.baidu.com/product/imageprocess"</span>,</span><br><span class="line">    <span class="attr">"AipImageSECRET_KEY"</span>: <span class="string">"GET: https://cloud.baidu.com/product/imageprocess"</span>,</span><br><span class="line">    <span class="attr">"AipNlpAPP_ID"</span> : <span class="string">"GET: https://cloud.baidu.com/product/nlp_apply"</span>,</span><br><span class="line">    <span class="attr">"AipNlpAPP_KEY"</span>: <span class="string">"GET: https://cloud.baidu.com/product/nlp_apply"</span>,</span><br><span class="line">    <span class="attr">"AipNlpSECRET_KEY"</span>: <span class="string">"GET: https://cloud.baidu.com/product/nlp_apply"</span>,</span><br><span class="line">    <span class="attr">"seafile_communicate_path"</span>: <span class="string">"GET: /Path/to/file"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="API-用法"><a href="#API-用法" class="headerlink" title="API 用法"></a>API 用法</h3><h4 id="rmbg"><a href="#rmbg" class="headerlink" title="rmbg"></a>rmbg</h4><div class="table-container">
 <table>
 <thead>
