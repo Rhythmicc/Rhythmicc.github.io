@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rhythmlian.cn/"/>
-  <updated>2020-08-13T18:41:25.164Z</updated>
+  <updated>2020-08-15T13:56:24.380Z</updated>
   <id>https://rhythmlian.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>将静态博客托管到腾讯云</title>
+    <link href="https://rhythmlian.cn/2020/08/15/deploy-blog-on-tencentcloud/"/>
+    <id>https://rhythmlian.cn/2020/08/15/deploy-blog-on-tencentcloud/</id>
+    <published>2020-08-15T13:09:33.000Z</published>
+    <updated>2020-08-15T13:56:24.380Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>为什么要将静态博客托管到腾讯云呢？</p><ol><li>依赖于良心云Serverless以及cdn技术可以大幅加快国内的访问速度；</li><li>对比coding page以及GitHub page，尽管良心云托管静态网站并不是完全免费的，但对于小规模流量的静态博客来讲几乎是白嫖；（关键是它快呀.jpg</li></ol><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol><li>你的静态博客的前端内容，比如<code>hexo</code>框架下，前端内容是<code>public</code>文件夹下的全部内容</li><li>一个可用的域名（否则无法使用cdn）</li><li>一个腾讯云账号</li><li>npm环境</li></ol><h2 id="安装命令工具cloudbase"><a href="#安装命令工具cloudbase" class="headerlink" title="安装命令工具cloudbase"></a>安装命令工具<code>cloudbase</code></h2><p>为了用户们能更好的利用良心云的serverless服务，良心云提供了个<code>cloudbase</code>的SDK，安装方法如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g @cloudbase/cli</span><br></pre></td></tr></table></figure><p>如果你遇到了权限问题，可以考虑：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g @cloudbase/cli</span><br></pre></td></tr></table></figure><p>完成命令后如果没有错误提示，代表安装成功，你可以采用如下命令验证：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudbase -v</span><br></pre></td></tr></table></figure><p>看到有版本号输出则说明安装成功。（<code>tcb</code>命令与<code>cloudbase</code>命令等价）</p><p>在正式使用<code>cloudbase</code>前，你需要进行登录：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcb login</span><br></pre></td></tr></table></figure><h2 id="静态托管"><a href="#静态托管" class="headerlink" title="静态托管"></a>静态托管</h2><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>良心云连续两月每月赠送<code>5GB</code>流量和<code>1G</code>的存储空间用于托管静态网站（对于普通用户足够了），你可以通过<a href="https://console.cloud.tencent.com/tcb/hosting/index" target="_blank" rel="noopener">链接</a>创建你的<code>静态网站托管</code>项目，成功后，左上角会有一串id用来独立标识你的静态网站项目（你需要将它保存）。</p><p><img src="https://p.pstatp.com/origin/ffd20001bc2a12095e46" alt=""></p><p>通过<code>命令行/终端</code>进入你的静态网站内容所在的文件夹，并运行如下命令将内容上传至腾讯云：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudbase hosting:deploy hosting -e [你刚刚保存的id]</span><br></pre></td></tr></table></figure><h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p>点击腾讯云控制台左上角的<code>基础配置</code>，可以看到：</p><p><img src="https://img01.sogoucdn.com/app/a/100520146/5613422ef63c0a76eadc2dd720d688ff" alt=""></p><p>点击<code>添加域名</code>，并填入你的域名（注意，由于腾讯云需要支持https访问，因此你需要具备一个SSL证书，如果你没有，你可以通过腾讯云免费申请）。完成后，进入你的域名配置，添加一条<code>CNAME</code>解析记录，并将值填为上图中<code>CNAME下显示的地址</code>，等待几分钟即可。绑定成功后，<code>状态</code>下将显示<code>已启动</code>。</p><p>至此，你已经完成了将静态博客托管到腾讯云（容易的一批）；通过你设置的域名即可访问静态博客了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="攻略" scheme="https://rhythmlian.cn/categories/%E6%94%BB%E7%95%A5/"/>
+    
+    
+      <category term="攻略" scheme="https://rhythmlian.cn/tags/%E6%94%BB%E7%95%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>QuickStart_Rhy中文文档</title>
@@ -564,35 +593,6 @@
     
     
       <category term="讨论" scheme="https://rhythmlian.cn/tags/%E8%AE%A8%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>为Mac打造终极菜单栏</title>
-    <link href="https://rhythmlian.cn/2020/02/20/MacMenu/"/>
-    <id>https://rhythmlian.cn/2020/02/20/MacMenu/</id>
-    <published>2020-02-20T07:54:52.000Z</published>
-    <updated>2020-03-30T08:05:56.661Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><div class="table-container"><table><thead><tr><th>工具</th><th>介绍</th></tr></thead><tbody><tr><td><a href="https://getbitbar.com/" target="_blank" rel="noopener">BitBar</a></td><td>在菜单栏运行自己写的脚本</td></tr><tr><td><a href="https://bjango.com/mac/istatmenus/" target="_blank" rel="noopener">iStat Menu</a></td><td>大名鼎鼎的IStat Menu，不过需要付钱</td></tr><tr><td><a href="https://matthewpalmer.net/vanilla/" target="_blank" rel="noopener">Vanilla</a></td><td>隐藏一些没用的菜单栏图标</td></tr></tbody></table></div><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><ul><li>关闭Vanilla状态：</li></ul><p><img src="https://vip1.loli.net/2020/02/20/tSiXpFAMzZWHKIe.png" alt="On"></p><ul><li>开启Vanilla状态：</li></ul><p><img src="https://vip1.loli.net/2020/02/20/ulMk6GOzLPAwBro.png" alt="Off"></p><h2 id="BitBar"><a href="#BitBar" class="headerlink" title="BitBar"></a>BitBar</h2><ul><li>具体安装方式可以参照<a href="https://rhythmlian.cn/2020/02/18/bitbar/">我的博客</a></li></ul><h2 id="iStat-Menu"><a href="#iStat-Menu" class="headerlink" title="iStat Menu"></a>iStat Menu</h2><ul><li><p><strong>不推荐</strong>从APP Store上下载，直接去官网下载免费版，需要激活就去淘宝买激活码~</p></li><li><p>iStat Menu的天气数据是从<a href="https://darksky.net/" target="_blank" rel="noopener">Dark Sky</a>获取的，你可以申请免费的API，再利用BitBar实现相应功能，无需付费</p><ul><li>配置好BitBar后，将<code>bitbar-plugins/weather/weather.15m.py</code>复制到<code>BitBar工作目录</code></li><li>在<code>weather.15m.py</code>填入你申请的API ID</li><li>如果你想使用我的天气脚本，请点击：<a href="https://tx-rhythm-1257451806.cos.ap-beijing.myqcloud.com/weather.15m.py" target="_blank" rel="noopener">weather.15m.py</a></li></ul></li><li><p>可能浏览器下载速度比较慢，你可以运行命令：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qs -dl https://files.bjango.com/istatmenus6/istatmenus6.40.zip</span><br></pre></td></tr></table></figure><p>（使用多线程下载）</p></li></ul><h2 id="Vanilla"><a href="#Vanilla" class="headerlink" title="Vanilla"></a>Vanilla</h2><ul><li>Vanilla是一款隐藏菜单图标的APP，可以免费使用，也可以花<code>不到5刀</code>解锁<code>Pro</code>版本~</li><li><p>不过大陆付费的话，只能用visa</p></li><li><p>下载：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qs -dl https://macrelease.matthewpalmer.net/Vanilla.dmg</span><br></pre></td></tr></table></figure></li></ul><h2 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h2><ul><li><code>qs</code>: <a href="https://pypi.org/project/QuickStart-Rhy/" target="_blank" rel="noopener">QuickStart-Rhy</a>, qs -dl支持断点续下，如果下载进度停滞不动，你可以结束这个进程并重新运行</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="攻略" scheme="https://rhythmlian.cn/categories/%E6%94%BB%E7%95%A5/"/>
-    
-    
-      <category term="MacOS" scheme="https://rhythmlian.cn/tags/MacOS/"/>
     
   </entry>
   
