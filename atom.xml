@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rhythmlian.cn/"/>
-  <updated>2020-08-15T14:11:23.556Z</updated>
+  <updated>2020-08-18T13:29:08.524Z</updated>
   <id>https://rhythmlian.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>通过云服务器实现远程登录内网服务器</title>
+    <link href="https://rhythmlian.cn/2020/08/18/ssh-to-intranet/"/>
+    <id>https://rhythmlian.cn/2020/08/18/ssh-to-intranet/</id>
+    <published>2020-08-18T12:14:58.000Z</published>
+    <updated>2020-08-18T13:29:08.524Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>相信总会有小伙伴苦恼如何登录上公司或学校的内网服务器，为了解决这个问题我近期也是踩了不少坑，终于有一套方案是可行的。</p><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p><img src="https://shop.io.mi-img.com/app/shop/img?id=shop_100be6e5044612dfdad634a7335b6cd8.png" alt=""></p><p>如图，我们的目的是从<code>D</code>连接到<code>A</code>，但是由于<code>A</code>在内网中，并不具备公网ip，因此实际上<code>D</code>无法主动建立<code>D-&gt;B-&gt;A</code>的通路。但是还有一种方案是：</p><ul><li><code>A</code>主动建立<code>A-&gt;B-&gt;C</code>的双向通路</li><li><code>D</code>主动建立<code>D-&gt;C</code>的双向通路</li><li><code>C</code>负责转发来自<code>A-&gt;B-&gt;C</code>和<code>D-&gt;C</code>的数据</li></ul><p>这样，我们建立起来了<code>A&lt;-&gt;B&lt;-&gt;C&lt;-&gt;D</code>的通路。</p><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><ol><li>一台你的具备公网ip的服务器</li><li>两台可能都在内网的电脑、服务器</li></ol><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="配置公网服务器"><a href="#配置公网服务器" class="headerlink" title="配置公网服务器"></a>配置公网服务器</h3><ol><li><p>首先，开放一个公网服务器的空闲端口，假设为<code>8022</code></p></li><li><p>修改<code>/etc/ssh/sshd_config</code>中<code>GatewayPorts</code>、<code>AllowAgentForwarding</code>为<code>yes</code>，并重启<code>sshd</code>服务：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart sshd</span><br></pre></td></tr></table></figure></li><li><p>从防火墙 | 路由表开放<code>8022</code>端口：</p><ul><li>如果使用<code>firewall</code>:</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br><span class="line">firewall-cmd --add-port=8022/tcp --permanent</span><br><span class="line">firewall-cmd --add-port=8022/udp --permanent</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">firewall-cmd --zone=public --query-port=8022/tcp</span><br></pre></td></tr></table></figure><ul><li>如果使用<code>iptables</code>:</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p udp -d 0/0 -s 0/0 --dport 8022  -j ACCEPT</span><br><span class="line">iptables -A INPUT -p tcp -d 0/0 -s 0/0 --dport 8022  -j ACCEPT</span><br><span class="line">netfilter-persistent save</span><br><span class="line">netfilter-persistent reload</span><br></pre></td></tr></table></figure></li></ol><h3 id="建立SSH隧道"><a href="#建立SSH隧道" class="headerlink" title="建立SSH隧道"></a>建立SSH隧道</h3><ol><li><p>在需要被访问的内网服务器上执行</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nohup ssh -fR 8022:127.0.0.1:内网服务器SSH端口 root@远程服务器IP -p 远程服务器SSH端口 "vmstat 30"</span><br><span class="line"><span class="meta">#</span><span class="bash"> 内网服务器SSH端口默认值: 22</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 远程服务器SSH端口默认值: 22</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> vmstat 30 是防止远程服务器主动断开长时间未通信的链接</span></span><br></pre></td></tr></table></figure></li><li><p>可能需要输入密码建立连接</p></li></ol><h3 id="登录内网服务器"><a href="#登录内网服务器" class="headerlink" title="登录内网服务器"></a>登录内网服务器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -p 8022 内网用户名@公网服务器IP</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="攻略" scheme="https://rhythmlian.cn/categories/%E6%94%BB%E7%95%A5/"/>
+    
+    
+      <category term="攻略" scheme="https://rhythmlian.cn/tags/%E6%94%BB%E7%95%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>将静态博客托管到腾讯云</title>
@@ -564,35 +593,6 @@
     
     
       <category term="Python" scheme="https://rhythmlian.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>分组交换中块大小对传输速度影响</title>
-    <link href="https://rhythmlian.cn/2020/02/23/ntwk1-md/"/>
-    <id>https://rhythmlian.cn/2020/02/23/ntwk1-md/</id>
-    <published>2020-02-23T08:16:31.000Z</published>
-    <updated>2020-02-23T09:47:06.296Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><ul><li>在计算机网络中，为了提高信息传递效率，往往采用<strong>分组交换策略</strong>，即将数据拆分为若干段传送。</li><li>这就带来一个问题，<strong>分组长度是不是越小越好？</strong></li></ul><h2 id="假设"><a href="#假设" class="headerlink" title="假设"></a>假设</h2><ul><li>A通过网络向B发送<code>T bit</code>的数据</li><li>A与B之间需要经过<code>swp</code>个交换机</li><li>A与B之间的网络传输速度为<code>bps bit/s</code></li><li>假设分组长度为<code>B bit</code></li></ul><h2 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h2><ul><li><p>显然，传送时间与分组长度之间的关系：<script type="math/tex">time = \frac{T+swp*B}{bps}</script></p></li><li><p>下图为：<code>T = 1.5e7, swp = 2, bps = 1.5e6</code>时，传送时间与分组长度之间的关系图像</p><p><img src="https://vip1.loli.net/2020/02/23/hjibxPJUeV7rNFR.png" alt="T=15e6|swp=2|bps=15e5"></p></li></ul><ul><li><p>但是，在这个模型中我们忽略了一个头部信息长度，现假设头部信息平均长度为<code>h bit</code></p></li><li><p>那么，关系式为：<script type="math/tex">time=\frac{(\frac{T}{B}+swp)*(B+h)}{bps}</script></p></li><li><p>下图为：<code>h = 1000</code>且<code>B&gt;=1000</code>时的情况</p><p><img src="https://vip1.loli.net/2020/02/23/RQXuThxqSk3ADYv.png" alt="res2"></p></li><li><p>显然，此时存在一个最优块大小<code>Bbest</code>，它等于<script type="math/tex">\sqrt{\frac{Th}{swp}}</script>（<code>bps &gt; 0</code>）</p></li></ul><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><ul><li>当分组传送不存在头部信息时：分组长度（块大小）越小越好</li><li>当分组传送存在头部信息时：存在最优块大小<script type="math/tex">Bbest = \sqrt{\frac{Th}{swp}}</script></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="计算机基础" scheme="https://rhythmlian.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="讨论" scheme="https://rhythmlian.cn/tags/%E8%AE%A8%E8%AE%BA/"/>
     
   </entry>
   
