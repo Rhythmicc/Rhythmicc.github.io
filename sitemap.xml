@@ -263,14 +263,7 @@
   </url>
   
   <url>
-    <loc>https://rhythmlian.cn/tags/C/</loc>
-    <lastmod>2020-08-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rhythmlian.cn/tags/Python%E5%BC%80%E6%BA%90%E5%BA%93%E6%96%87%E6%A1%A3/</loc>
+    <loc>https://rhythmlian.cn/tags/Love/</loc>
     <lastmod>2020-08-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -284,7 +277,14 @@
   </url>
   
   <url>
-    <loc>https://rhythmlian.cn/tags/Love/</loc>
+    <loc>https://rhythmlian.cn/tags/Python%E5%BC%80%E6%BA%90%E5%BA%93%E6%96%87%E6%A1%A3/</loc>
+    <lastmod>2020-08-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rhythmlian.cn/tags/C/</loc>
     <lastmod>2020-08-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -292,6 +292,13 @@
   
   <url>
     <loc>https://rhythmlian.cn/tags/%E6%94%BB%E7%95%A5/</loc>
+    <lastmod>2020-08-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rhythmlian.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2020-08-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -306,13 +313,6 @@
   
   <url>
     <loc>https://rhythmlian.cn/tags/%E8%AE%A8%E8%AE%BA/</loc>
-    <lastmod>2020-08-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rhythmlian.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2020-08-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
