@@ -11,7 +11,6 @@
   enable_page_level_ads: 'true'
 });</script><script>var GLOBAL_CONFIG = { 
   root: '/',
-  hexoversion: '4.2.0',
   algolia: undefined,
   localSearch: undefined,
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
@@ -77,8 +76,8 @@ var saveToLocal = {
   isPost: false,
   isHome: false,
   isHighlightShrink: false,
-  isSidebar: false,
-  postUpdate: '2020-10-20 09:24:19'
+  isToc: false,
+  postUpdate: '2020-10-31 14:40:13'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -91,8 +90,7 @@ var saveToLocal = {
   #post-meta time {
     display: inline !important
   }
-</style></noscript><script>(function () {
-  window.activateDarkMode = function () {
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
     document.documentElement.setAttribute('data-theme', 'dark')
     if (document.querySelector('meta[name="theme-color"]') !== null) {
       document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
@@ -100,11 +98,10 @@ var saveToLocal = {
   }
   window.activateLightMode = function () {
     document.documentElement.setAttribute('data-theme', 'light')
-    if (document.querySelector('meta[name="theme-color"]') !== null) {
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
       document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
     }
   }
-
   const autoChangeMode = 'false'
   const t = saveToLocal.get('theme')
   if (autoChangeMode === '1') {
@@ -112,7 +109,6 @@ var saveToLocal = {
     const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
     const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
     const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
     if (t === undefined) {
       if (isLightMode) activateLightMode()
       else if (isDarkMode) activateDarkMode()
@@ -139,8 +135,14 @@ var saveToLocal = {
   } else {
     if (t === 'dark') activateDarkMode()
     else if (t === 'light') activateLightMode()
-  }
-})()</script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="RhythmLian's Blog" type="application/atom+xml">
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="RhythmLian's Blog" type="application/atom+xml">
 </head><body><canvas class="fireworks"></canvas><div id="error-wrap"><div class="error-content"><div class="error-img" style="background-image: url(https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png)"></div><div class="error-info"><h1 class="error_title">404</h1><div class="error_subtitle">Page Not Found</div><a class="button--animated" href="/"><i class="fas fa-rocket"></i>回到主页</a></div></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
   if (typeof pangu === 'object') pangu.spacingElementById('content-inner')
   else {
