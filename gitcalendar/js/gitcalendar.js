@@ -69,7 +69,7 @@ const gitcalendar = new Vue({
         },
     }
 });
-let githubapiurl = "https://python-github-calendar-api.zfour.vercel.app/api/?" + gitcalendar.user;
+let githubapiurl = "github-calendar-api.rhythmlian.vercel.app/api/?" + gitcalendar.user;
 
 //canvas绘图
 function responsiveChart() {
