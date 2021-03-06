@@ -305,6 +305,13 @@
   </url>
   
   <url>
+    <loc>https://rhythmlian.cn/tags/MacOS/</loc>
+    <lastmod>2021-03-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://rhythmlian.cn/tags/Love/</loc>
     <lastmod>2021-03-06</lastmod>
     <changefreq>daily</changefreq>
@@ -312,7 +319,14 @@
   </url>
   
   <url>
-    <loc>https://rhythmlian.cn/tags/MacOS/</loc>
+    <loc>https://rhythmlian.cn/tags/uTools/</loc>
+    <lastmod>2021-03-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rhythmlian.cn/tags/GFW/</loc>
     <lastmod>2021-03-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -333,13 +347,6 @@
   </url>
   
   <url>
-    <loc>https://rhythmlian.cn/tags/GFW/</loc>
-    <lastmod>2021-03-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://rhythmlian.cn/tags/%E6%94%BB%E7%95%A5/</loc>
     <lastmod>2021-03-06</lastmod>
     <changefreq>daily</changefreq>
@@ -347,7 +354,7 @@
   </url>
   
   <url>
-    <loc>https://rhythmlian.cn/tags/uTools/</loc>
+    <loc>https://rhythmlian.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2021-03-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -369,13 +376,6 @@
   
   <url>
     <loc>https://rhythmlian.cn/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/</loc>
-    <lastmod>2021-03-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rhythmlian.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2021-03-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
