@@ -3110,16 +3110,16 @@ span.categoryBar-list-count::after {
   right: -100%;
 }
 li.categoryBar-list-item:nth-child(1) {
-  background: url('https://file.alapi.cn/image/comic/191217-1510053137b273.jpg');
+  background: url('https://api.luvying.com/acgimg?1');
 }
 li.categoryBar-list-item:nth-child(2) {
   background: url('https://file.alapi.cn/image/comic/Test/0072Vf1pgy1foxlnuvhbej31hc0u0wuw.jpg');
 }
 li.categoryBar-list-item:nth-child(3) {
-  background: url('https://file.alapi.cn/image/comic/200409-1539864249e8c0.jpg');
+  background: url('https://api.luvying.com/acgimg?2');
 }
 li.categoryBar-list-item:nth-child(4) {
-  background: url('https://file.alapi.cn/image/comic/163354-15232628345b2c.jpg');
+  background: url('https://api.luvying.com/acgimg?3');
 }
 li.categoryBar-list-item:nth-child(5) {
   background: url('https://file.alapi.cn/image/comic/195058-15127338581a58.jpg');
