@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rhythmlian.cn/"/>
-  <updated>2021-04-11T15:29:08.000Z</updated>
+  <updated>2021-04-26T03:25:28.000Z</updated>
   <id>https://rhythmlian.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在Linux上使用2060s挖ETH</title>
+    <link href="https://rhythmlian.cn/2021/04/26/digETH/"/>
+    <id>https://rhythmlian.cn/2021/04/26/digETH/</id>
+    <published>2021-04-26T03:25:28.000Z</published>
+    <updated>2021-04-26T03:25:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="获取ETH钱包地址"><a href="#获取ETH钱包地址" class="headerlink" title="获取ETH钱包地址"></a>获取ETH钱包地址</h2><ol><li>去Chrome 网上应用商店下载<code>MetaMask</code>浏览器插件</li><li>ETH钱包地址在中间的<code>Account</code>中，点击即可复制</li></ol><h2 id="获取软件"><a href="#获取软件" class="headerlink" title="获取软件"></a>获取软件</h2><ol><li><p>推荐使用<a href="https://github.com/trexminer/T-Rex">T-Rex</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir t-rex</span><br><span class="line">cd t-rex</span><br><span class="line">wget https://github.com/trexminer/T-Rex/releases/download/0.20.3/t-rex-0.20.3-linux.tar.gz</span><br><span class="line">tar -xf t-rex-0.20.3-linux.tar.gz</span><br></pre></td></tr></table></figure></li><li><p>执行方式</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./t-rex -a ethash -p x -o stratum+tcp://你的地址:端口 -u 用户</span><br></pre></td></tr></table></figure></li></ol><h2 id="使用Spark矿池"><a href="#使用Spark矿池" class="headerlink" title="使用Spark矿池"></a>使用Spark矿池</h2><ol><li><p>去<a href="https://www.sparkpool.com/">SparkPool</a>注册</p></li><li><p>创建子账户，例如<code>sp_test</code></p></li><li><p>开始挖矿</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./t-rex -a ethash -p x -o stratum+tcp://cn.sparkpool.com:3335 -u sp_test.1</span><br></pre></td></tr></table></figure><p><strong>“.1” 的意思指的是1号矿机，你可以为不同设备设置不同编号，这个数可以是个任意整数。</strong></p></li></ol><h2 id="成功示例"><a href="#成功示例" class="headerlink" title="成功示例"></a>成功示例</h2><p><img src="https://api-img.alapi.cn/image/2021/04/26/f24c19ab0cc81c234d048cf49c982696.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="技术分享" scheme="https://rhythmlian.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="技术分享" scheme="https://rhythmlian.cn/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>各种平台安装python3</title>
@@ -562,35 +591,6 @@
     
     
       <category term="读后感" scheme="https://rhythmlian.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>qs的文件下载策略</title>
-    <link href="https://rhythmlian.cn/2020/03/23/qs-dl/"/>
-    <id>https://rhythmlian.cn/2020/03/23/qs-dl/</id>
-    <published>2020-03-23T09:57:34.000Z</published>
-    <updated>2020-03-23T09:57:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><ul><li>基于Python的小文件下载是非常简单的：</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dl</span>(<span class="params">url</span>):</span></span><br><span class="line">    r = requests.get(self.url, stream=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(self.name, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> chunk <span class="keyword">in</span> r.iter_content(<span class="number">8192</span>):</span><br><span class="line">            f.write(chunk)</span><br></pre></td></tr></table></figure><ul><li>但在实际应用时，这样的简单文件下载往往不满足生产需要。比如，<code>单线程下载速度慢</code>，<code>IO频繁</code>。<del>玄学的是有时候这个可能比多线程下载要快一些。</del></li></ul><h2 id="普通文件下载策略"><a href="#普通文件下载策略" class="headerlink" title="普通文件下载策略"></a>普通文件下载策略</h2><h3 id="如何分配线程数？"><a href="#如何分配线程数？" class="headerlink" title="如何分配线程数？"></a>如何分配线程数？</h3><ul><li>在使用qs下载时，首先判断当前系统的<code>CPU</code>状态，保证在调用<code>min(CPU核心数*4, 16) + max(CPU核心数/2, 2)</code>的线程数情况下，平稳下载。其中，<code>max</code>部分是<a href="/2020/02/14/QuickStart-Rhy/#ThreadTools">写文件线程池</a>，用于处理频繁的文件IO。</li></ul><h3 id="如何针对一个文件并行下载？"><a href="#如何针对一个文件并行下载？" class="headerlink" title="如何针对一个文件并行下载？"></a>如何针对一个文件并行下载？</h3><ul><li>利用http通讯协议，在http头部信息添加<code>range: bytes=from-to</code>信息，对一个文件分块下载。</li><li>既然可以分块，块与块之间又没有依赖，就可以进行并行优化。并且，得益于文件操作的位置不同，<strong>甚至不需要针对下载文件设置读写锁</strong>。</li><li>当然，这样下载有一个前提，就是<strong>需要预先知道待下载的文件具体有多大。</strong>所以，在无法预知文件大小时，qs仍然会采用<code>最朴素的下载方法</code>（也就是开篇的那个算法）</li></ul><h3 id="如何设定块大小？"><a href="#如何设定块大小？" class="headerlink" title="如何设定块大小？"></a>如何设定块大小？</h3><ul><li>经过反复测试，我认为相对性能较好的块大小区间：<script type="math/tex">500KB\le BlockSize\le5MB</script></li><li><strong>很多时候，下载的文件其实并没有很大，针对大小不足<code>5M</code>的文件，qs不会启用多线程下载。</strong></li></ul><h3 id="下载中途可能的问题"><a href="#下载中途可能的问题" class="headerlink" title="下载中途可能的问题"></a>下载中途可能的问题</h3><ul><li><strong>针对块下载时可能遇到的意外错误，<code>qs</code>将无限制的重试下去。如果重试次数达到一定数量，每次重试时qs将小憩一段时间。</strong></li><li><strong>在一些并不稳定的下载过程中，遇到网络波动下载进程终止是很麻烦的事情，但是，你不用为qs担心，在启动多线程下载时，qs会将下载过的块进行标记并将信息存储在以<code>.qs_dl</code>结尾的文件里，当你重新进行文件下载时，qs可以实现<code>断点续下载</code>。</strong></li><li><strong>具备下载限速的资源，多线程下载加速并不十分明显。过快的下载速度+低速的内存可能会造成下载过程中qs占用过多内存的问题。</strong></li></ul><h3 id="qs下载的优势"><a href="#qs下载的优势" class="headerlink" title="qs下载的优势"></a>qs下载的优势</h3><ul><li><code>断点续下载</code></li><li>得益于分块策略，可以大幅提速</li><li><code>不会被意外的网络问题中断下载任务</code></li><li><code>qs针对每一块下载都设置了超时重试，这意味着网络状态突然改变时，qs性能不会一直受到影响。</code></li></ul><h3 id="将尝试的优化"><a href="#将尝试的优化" class="headerlink" title="将尝试的优化"></a>将尝试的优化</h3><ol><li>动态调整块大小。</li><li>增强程序健壮性</li></ol><h3 id="部分源码"><a href="#部分源码" class="headerlink" title="部分源码"></a>部分源码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Downloader</span>:</span></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">run</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">if</span> self.size &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> self.ctn:</span><br><span class="line">                <span class="keyword">with</span> <span class="built_in">open</span>(self.name, <span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">                    fp.truncate(self.size)</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, self.size, self.fileBlock):</span><br><span class="line">                <span class="keyword">if</span> self.ctn <span class="keyword">and</span> i <span class="keyword">in</span> self.ctn:</span><br><span class="line">                    self.cur_sz += <span class="built_in">min</span>(i + self.fileBlock, self.size) - i</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    self.job_queue.put(i)</span><br><span class="line">            retry_cnt = <span class="number">0</span></span><br><span class="line">            <span class="keyword">while</span> <span class="keyword">not</span> self.job_queue.empty():</span><br><span class="line">                self.futures.clear()</span><br><span class="line">                <span class="keyword">while</span> <span class="keyword">not</span> self.job_queue.empty():</span><br><span class="line">                    cur = self.job_queue.get()</span><br><span class="line">                    <span class="keyword">if</span> cur <span class="keyword">not</span> <span class="keyword">in</span> self.ctn:</span><br><span class="line">                        self.futures.append(self.pool.submit(self._dl, cur))</span><br><span class="line">                wait(self.futures)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> self.job_queue.empty() <span class="keyword">and</span> retry_cnt &gt; <span class="number">2</span>:</span><br><span class="line">                    print(<span class="string">&#x27;\r[INFO] Exists File Block Lost, Retrying after 0.5 sec&#x27;</span>)</span><br><span class="line">                    time.sleep(<span class="number">0.5</span>)</span><br><span class="line">                retry_cnt += <span class="number">1</span></span><br><span class="line">            self.writers.wait()</span><br><span class="line">            self.ctn_file.close()</span><br><span class="line">            os.remove(self.name + <span class="string">&#x27;.qs_dl&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self._single_dl()</span><br><span class="line">        print(<span class="string">&#x27;[INFO] %s download done!&#x27;</span> % self.name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">normal_dl</span>(<span class="params">url</span>):</span></span><br><span class="line">    Downloader(url, <span class="built_in">min</span>(<span class="number">16</span>, core_num * <span class="number">4</span>)).run()</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="流媒体下载策略"><a href="#流媒体下载策略" class="headerlink" title="流媒体下载策略"></a>流媒体下载策略</h2><ul><li>经常开车的小伙们总会需要下载一些流媒体，其视频信息往往存储在以<code>.m3u8</code>结尾的索引文件中；</li><li>qs可以识别出这类文件，并启用线程池并行下载索引文件中的所有<code>.ts</code>文件，并帮助你把<code>.ts</code>文件们合并（但是并不保证这个过程一定没有错误，可能会造成你转换视频格式时出现问题）</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="开发" scheme="https://rhythmlian.cn/categories/%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="技术分享" scheme="https://rhythmlian.cn/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
     
   </entry>
   
