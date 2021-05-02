@@ -2755,20 +2755,6 @@ blockquote footer cite:before {
   width: 20%;
   text-align: right;
 }
-#aside-content .card-archives ul.card-archive-list > .card-archive-list-item.more span,
-#aside-content .card-categories ul.card-category-list > .card-category-list-item.more span {
-  padding-right: 0.3rem;
-  width: auto !important;
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -o-transition: 0.5s;
-  -ms-transition: 0.5s;
-  transition: 0.5s;
-}
-#aside-content .card-archives ul.card-archive-list > .card-archive-list-item.more:hover span,
-#aside-content .card-categories ul.card-category-list > .card-category-list-item.more:hover span {
-  padding-right: 0.6rem;
-}
 #aside-content .card-categories .card-category-list.child {
   padding: 0 0 0 0.8rem;
 }

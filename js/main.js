@@ -561,7 +561,6 @@ document.addEventListener('DOMContentLoaded', function () {
     adjustFontSize: (plus) => {
       const fontSizeVal = parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--global-font-size'))
       let newValue = ''
-      detectFontSizeChange = true
       if (plus) {
         if (fontSizeVal >= 20) return
         newValue = fontSizeVal + 1
