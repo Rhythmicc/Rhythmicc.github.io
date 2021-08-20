@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
         $figureHighlight.forEach(function (item) {
           const langName = item.getAttribute('data-language') ? item.getAttribute('data-language') : 'Code'
           const highlightLangEle = `<div class="code-lang">${langName}</div>`
-          btf.wrap(item, 'figure', '', 'highlight')
+          btf.wrap(item, 'figure', { class: 'highlight' })
           createEle(highlightLangEle, item)
         })
       } else {
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       if (isPrismjs) {
         $figureHighlight.forEach(function (item) {
-          btf.wrap(item, 'figure', '', 'highlight')
+          btf.wrap(item, 'figure', { class: 'highlight' })
           createEle('', item)
         })
       } else {
@@ -235,10 +235,56 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /**
+ * fancybox和 mediumZoom
+ */
+  const addFancybox = () => {
+    const runFancybox = () => {
+      document.querySelectorAll('#article-container img:not(.no-lightbox)').forEach(i => {
+        const lazyloadSrc = i.dataset.lazySrc || i.src
+        const dataCaption = i.alt || ''
+        btf.wrap(i, 'a', { href: lazyloadSrc, 'data-fancybox': 'gallery', 'data-caption': dataCaption, 'data-thumb': lazyloadSrc })
+      })
+
+      Fancybox.destroy()
+      Fancybox.bind('[data-fancybox]', {
+        Hash: false
+      })
+    }
+
+    if (typeof Fancybox !== 'function') {
+      const ele = document.createElement('link')
+      ele.rel = 'stylesheet'
+      ele.href = GLOBAL_CONFIG.source.fancybox.css
+      document.head.appendChild(ele)
+
+      getScript(`${GLOBAL_CONFIG.source.fancybox.js}`).then(() => {
+        runFancybox()
+      })
+    } else {
+      runFancybox()
+    }
+  }
+
+  const addMediumZoom = () => {
+    const zoom = mediumZoom(document.querySelectorAll('#article-container img:not(.no-lightbox)'))
+    zoom.on('open', e => {
+      const photoBg = document.documentElement.getAttribute('data-theme') === 'dark' ? '#121212' : '#fff'
+      zoom.update({
+        background: photoBg
+      })
+    })
+  }
+
+  // It needs to call it after the Justified Gallery done, or the fancybox maybe not work
+  const runLightbox = () => {
+    GLOBAL_CONFIG.lightbox === 'mediumZoom' && addMediumZoom()
+    GLOBAL_CONFIG.lightbox === 'fancybox' && addFancybox()
+  }
+
+  /**
  * justified-gallery 圖庫排版
  * 需要 jQuery
  */
-
   let detectJgJsLoad = false
   const runJustifiedGallery = function (ele) {
     const $justifiedGallery = $(ele)
@@ -251,72 +297,29 @@ document.addEventListener('DOMContentLoaded', function () {
       })
     }
 
-    if (detectJgJsLoad) btf.initJustifiedGallery($justifiedGallery)
-    else {
-      $('head').append(`<link rel="stylesheet" type="text/css" href="${GLOBAL_CONFIG.source.justifiedGallery.css}">`)
-      $.getScript(`${GLOBAL_CONFIG.source.justifiedGallery.js}`, function () {
-        btf.initJustifiedGallery($justifiedGallery)
-      })
-      detectJgJsLoad = true
-    }
-  }
-
-  /**
- * fancybox和 mediumZoom
- */
-  const addFancybox = function (ele) {
-    const runFancybox = (ele) => {
-      ele.each(function (i, o) {
-        const $this = $(o)
-        const lazyloadSrc = $this.attr('data-lazy-src') || $this.attr('src')
-        const dataCaption = $this.attr('alt') || ''
-        $this.wrap(`<a href="${lazyloadSrc}" data-fancybox="group" data-caption="${dataCaption}" class="fancybox"></a>`)
-      })
-
-      $().fancybox({
-        selector: '[data-fancybox]',
-        loop: true,
-        transitionEffect: 'slide',
-        protect: true,
-        buttons: ['slideShow', 'fullScreen', 'thumbs', 'close'],
-        hash: false
-      })
+    if (detectJgJsLoad) {
+      runLightbox()
+      btf.initJustifiedGallery($justifiedGallery)
+      return
     }
 
-    if (typeof $.fancybox === 'undefined') {
-      $('head').append(`<link rel="stylesheet" type="text/css" href="${GLOBAL_CONFIG.source.fancybox.css}">`)
-      $.getScript(`${GLOBAL_CONFIG.source.fancybox.js}`, function () {
-        runFancybox($(ele))
-      })
-    } else {
-      runFancybox($(ele))
-    }
-  }
-
-  const addMediumZoom = () => {
-    const zoom = mediumZoom(document.querySelectorAll('#article-container :not(a)>img'))
-    zoom.on('open', e => {
-      const photoBg = document.documentElement.getAttribute('data-theme') === 'dark' ? '#121212' : '#fff'
-      zoom.update({
-        background: photoBg
-      })
+    $('head').append(`<link rel="stylesheet" type="text/css" href="${GLOBAL_CONFIG.source.justifiedGallery.css}">`)
+    $.getScript(`${GLOBAL_CONFIG.source.justifiedGallery.js}`, function () {
+      runLightbox()
+      btf.initJustifiedGallery($justifiedGallery)
     })
+    detectJgJsLoad = true
   }
 
   const jqLoadAndRun = () => {
-    const $fancyboxEle = GLOBAL_CONFIG.lightbox === 'fancybox'
-      ? document.querySelectorAll('#article-container :not(a):not(.gallery-group) > img, #article-container > img')
-      : []
-    const fbLengthNoZero = $fancyboxEle.length > 0
     const $jgEle = document.querySelectorAll('#article-container .justified-gallery')
-    const jgLengthNoZero = $jgEle.length > 0
-
-    if (jgLengthNoZero || fbLengthNoZero) {
+    if ($jgEle.length) {
       btf.isJqueryLoad(() => {
-        jgLengthNoZero && runJustifiedGallery($jgEle)
-        fbLengthNoZero && addFancybox($fancyboxEle)
+        runJustifiedGallery($jgEle)
       })
+      return
     }
+    runLightbox()
   }
 
   /**
@@ -332,50 +335,55 @@ document.addEventListener('DOMContentLoaded', function () {
       return
     }
 
-    let initTop = 0
-    let isChatShow = true
-    const $header = document.getElementById('page-header')
-    const isChatBtnHide = typeof chatBtnHide === 'function'
-    const isChatBtnShow = typeof chatBtnShow === 'function'
-    window.addEventListener('scroll', btf.throttle(function (e) {
-      const currentTop = window.scrollY || document.documentElement.scrollTop
-      const isDown = scrollDirection(currentTop)
-      if (currentTop > 56) {
-        if (isDown) {
-          if ($header.classList.contains('nav-visible')) $header.classList.remove('nav-visible')
-          if (isChatBtnShow && isChatShow === true) {
-            chatBtnHide()
-            isChatShow = false
-          }
-        } else {
-          if (!$header.classList.contains('nav-visible')) $header.classList.add('nav-visible')
-          if (isChatBtnHide && isChatShow === false) {
-            chatBtnShow()
-            isChatShow = true
-          }
-        }
-        $header.classList.add('nav-fixed')
-        if (window.getComputedStyle($rightside).getPropertyValue('opacity') === '0') {
-          $rightside.style.cssText = 'opacity: 1; transform: translateX(-38px)'
-        }
-      } else {
-        if (currentTop === 0) {
-          $header.classList.remove('nav-fixed', 'nav-visible')
-        }
-        $rightside.style.cssText = "opacity: ''; transform: ''"
-      }
-
-      if (document.body.scrollHeight <= innerHeight) {
-        $rightside.style.cssText = 'opacity: 1; transform: translateX(-38px)'
-      }
-    }, 200))
-
     // find the scroll direction
     function scrollDirection (currentTop) {
       const result = currentTop > initTop // true is down & false is up
       initTop = currentTop
       return result
     }
+
+    let initTop = 0
+    let isChatShow = true
+    const $header = document.getElementById('page-header')
+    const isChatBtnHide = typeof chatBtnHide === 'function'
+    const isChatBtnShow = typeof chatBtnShow === 'function'
+
+    window.scrollCollect = () => {
+      return btf.throttle(function (e) {
+        const currentTop = window.scrollY || document.documentElement.scrollTop
+        const isDown = scrollDirection(currentTop)
+        if (currentTop > 56) {
+          if (isDown) {
+            if ($header.classList.contains('nav-visible')) $header.classList.remove('nav-visible')
+            if (isChatBtnShow && isChatShow === true) {
+              chatBtnHide()
+              isChatShow = false
+            }
+          } else {
+            if (!$header.classList.contains('nav-visible')) $header.classList.add('nav-visible')
+            if (isChatBtnHide && isChatShow === false) {
+              chatBtnShow()
+              isChatShow = true
+            }
+          }
+          $header.classList.add('nav-fixed')
+          if (window.getComputedStyle($rightside).getPropertyValue('opacity') === '0') {
+            $rightside.style.cssText = 'opacity: 1; transform: translateX(-38px)'
+          }
+        } else {
+          if (currentTop === 0) {
+            $header.classList.remove('nav-fixed', 'nav-visible')
+          }
+          $rightside.style.cssText = "opacity: ''; transform: ''"
+        }
+
+        if (document.body.scrollHeight <= innerHeight) {
+          $rightside.style.cssText = 'opacity: 1; transform: translateX(-38px)'
+        }
+      }, 200)()
+    }
+
+    window.addEventListener('scroll', scrollCollect)
   }
 
   /**
@@ -687,7 +695,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const $table = document.querySelectorAll('#article-container :not(.highlight) > table, #article-container > table')
     if ($table.length) {
       $table.forEach(item => {
-        btf.wrap(item, 'div', '', 'table-wrap')
+        btf.wrap(item, 'div', { class: 'table-wrap' })
       })
     }
   }
@@ -833,7 +841,6 @@ document.addEventListener('DOMContentLoaded', function () {
     initAdjust()
 
     if (GLOBAL_CONFIG_SITE.isPost) {
-      GLOBAL_CONFIG_SITE.isToc && tocFn()
       GLOBAL_CONFIG.noticeOutdate !== undefined && addPostOutdateNotice()
       GLOBAL_CONFIG.relativeDate.post && relativeDate(document.querySelectorAll('#post-meta time'))
     } else {
@@ -843,12 +850,12 @@ document.addEventListener('DOMContentLoaded', function () {
       toggleCardCategory()
     }
 
+    GLOBAL_CONFIG_SITE.isToc && tocFn()
     sidebarFn()
     GLOBAL_CONFIG_SITE.isHome && scrollDownInIndex()
     addHighlightTool()
     GLOBAL_CONFIG.isPhotoFigcaption && addPhotoFigcaption()
     jqLoadAndRun()
-    GLOBAL_CONFIG.lightbox === 'mediumZoom' && addMediumZoom()
     scrollFn()
     addTableWrap()
     clickFnOfTagHide()
