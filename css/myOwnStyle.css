@@ -40,3 +40,16 @@ img {
     cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/pointer.cur),
         default;
 }
+
+.jg-caption{
+    text-align: center !important;
+}
+.jg-caption-visible::before {
+    content: "⊙ ";
+} 
+.fancybox-caption__body::before {
+    content: "⊙ ";
+} 
+.img-alt.is-center::before {
+    content: "⊙ ";
+}
