@@ -6,7 +6,7 @@
   <link href="https://rhythmlian.cn/atom.xml" rel="self"/>
   
   <link href="https://rhythmlian.cn/"/>
-  <updated>2022-01-25T04:16:47.000Z</updated>
+  <updated>2022-02-05T08:49:01.000Z</updated>
   <id>https://rhythmlian.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>冬奥IPTV直播</title>
+    <link href="https://rhythmlian.cn/2022/02/05/Winter-Olympics/"/>
+    <id>https://rhythmlian.cn/2022/02/05/Winter-Olympics/</id>
+    <published>2022-02-05T08:49:01.000Z</published>
+    <updated>2022-02-05T08:49:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><div class="table-container"><table><thead><tr><th>清晰度</th><th>链接</th></tr></thead><tbody><tr><td>8K25 5Mbps</td><td><a href="http://down.btvcloud.com/8k2021zhibo/zhibo8K2021.m3u8">http://down.btvcloud.com/8k2021zhibo/zhibo8K2021.m3u8</a></td></tr><tr><td>4K25 25Mbps</td><td><a href="http://223.110.235.9/ott.js.chinamobile.com/PLTV/3/224/3221228168/index.m3u8">http://223.110.235.9/ott.js.chinamobile.com/PLTV/3/224/3221228168/index.m3u8</a></td></tr><tr><td>4KHDR50 34Mbps</td><td><a href="http://223.110.235.24/ott.js.chinamobile.com/PLTV/3/224/3221228127/index.m3u8">http://223.110.235.24/ott.js.chinamobile.com/PLTV/3/224/3221228127/index.m3u8</a></td></tr><tr><td>1080P25 4Mbps</td><td><a href="http://39.135.138.60:18890/TVOD/88888910/224/3221226230/index.m3u8">http://39.135.138.60:18890/TVOD/88888910/224/3221226230/index.m3u8</a></td></tr></tbody></table></div>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://rhythmlian.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="冬奥直播" scheme="https://rhythmlian.cn/tags/%E5%86%AC%E5%A5%A5%E7%9B%B4%E6%92%AD/"/>
+    
+  </entry>
   
   <entry>
     <title>在大陆设置Apple TV网络（软路由）</title>
@@ -524,33 +551,6 @@
     
     
     <category term="MacOS" scheme="https://rhythmlian.cn/tags/MacOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>主流性能监测工具及使用</title>
-    <link href="https://rhythmlian.cn/2020/05/05/topTools/"/>
-    <id>https://rhythmlian.cn/2020/05/05/topTools/</id>
-    <published>2020-05-04T16:42:01.000Z</published>
-    <updated>2020-05-04T16:42:01.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="htop"><a href="#htop" class="headerlink" title="htop"></a>htop</h2><ul><li>传统性能监测工具，在Linux于Mac OS上可以轻松安装；</li><li>运行命令：<code>htop</code></li><li>截图</li></ul><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://i.loli.net/2020/05/05/lH4NPLOCWZInJdc.png" alt=""></p><h2 id="gtop"><a href="#gtop" class="headerlink" title="gtop"></a>gtop</h2><ul><li><a href="https://github.com/aksakalli/gtop">Go语言编写的性能监测工具</a></li><li>运行名令：<code>gtop</code></li><li>GTOP性能监测工具是最花哨的，可以实时为CPU工作状态画折线图、为内存等画空心饼图、为网络状态画滚动柱状图等。</li></ul><h2 id="glances"><a href="#glances" class="headerlink" title="glances"></a>glances</h2><p>glances 可以为 Unix 和 Linux 性能专家提供监视和分析性能数据的功能，其中包括：</p><ul><li>CPU 使用率</li><li>内存使用情况</li><li>内核统计信息和运行队列信息</li><li>磁盘 I/O 速度、传输和读/写比率</li><li>文件系统中的可用空间</li><li>磁盘适配器</li><li>网络 I/O 速度、传输和读/写比率</li><li>页面空间和页面速度</li><li>消耗资源最多的进程</li><li>计算机信息和系统资源</li></ul><p>glances 工具可以在用户的终端上实时显示重要的系统信息，并动态地对其进行更新。这个高效的工具可以工作于任何终端屏幕。另外它并不会消耗大量的 CPU 资源，通常低于百分之二。glances 在屏幕上对数据进行显示，并且每隔两秒钟对其进行更新。您也可以自己将这个时间间隔更改为更长或更短的数值。glances 工具还可以将相同的数据捕获到一个文件，便于以后对报告进行分析和绘制图形。输出文件可以是电子表格的格式 (.csv) 或者 html 格式。</p><div class="table-container"><table><thead><tr><th>标志</th><th>说明</th></tr></thead><tbody><tr><td>-b</td><td>显示网络连接速度 Byte/ 秒</td></tr><tr><td>-B @IP</td><td>host</td></tr><tr><td>-c @IP</td><td>host</td></tr><tr><td>-C file</td><td>设置配置文件默认是 /etc/glances/glances.conf</td></tr><tr><td>-d</td><td>关闭磁盘 I/O 模块</td></tr><tr><td>-e</td><td>显示传感器温度</td></tr><tr><td>-f file</td><td>设置输出文件（格式是 HTML 或者 CSV）</td></tr><tr><td>-m</td><td>关闭挂载的磁盘模块</td></tr><tr><td>-n</td><td>关闭网络模块</td></tr><tr><td>-p PORT</td><td>设置运行端口默认是 61209</td></tr><tr><td>-P password</td><td>设置客户端 / 服务器密码</td></tr><tr><td>-s</td><td>设置 glances 运行模式为服务器</td></tr><tr><td>-t sec</td><td>设置屏幕刷新的时间间隔，单位为秒，默认值为 2 秒，数值许可范围</td></tr><tr><td>-h</td><td>显示帮助信息</td></tr><tr><td>-v</td><td>显示版本信息</td></tr></tbody></table></div><ul><li>Demo<ul><li>开启性能监测的web服务：<code>glances -w -B 192.168.1.你的主机号 -b</code></li><li>开启C/S模式：<code>glances -s -B 10.0.2.15</code></li></ul></li></ul><h2 id="netdata"><a href="#netdata" class="headerlink" title="netdata!"></a><a href="https://github.com/netdata/netdata">netdata!</a></h2><p>netdata是当下火热的性能监测工具，它允许你以非常低的资源占用率开启一个性能监控服务，绑定19999号端口，因此你可以在浏览器上查看机器工作情况。不同于glances的是，netdata应用了许多现代化技术，并且提供丰富的图表使得性能监测更加直观。</p><p>运行图：</p><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://tx-rhythm-1257451806.cos.ap-beijing.myqcloud.com/netdata.gif" alt="1"></p>]]></content>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="技术分享" scheme="https://rhythmlian.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-    
-    <category term="攻略" scheme="https://rhythmlian.cn/tags/%E6%94%BB%E7%95%A5/"/>
     
   </entry>
   
