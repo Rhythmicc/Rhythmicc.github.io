@@ -6,7 +6,7 @@
   <link href="https://rhythmlian.cn/atom.xml" rel="self"/>
   
   <link href="https://rhythmlian.cn/"/>
-  <updated>2022-02-05T08:49:01.000Z</updated>
+  <updated>2022-02-14T04:59:32.000Z</updated>
   <id>https://rhythmlian.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>亲戚关系计算器</title>
+    <link href="https://rhythmlian.cn/2022/02/14/relationship-cal/"/>
+    <id>https://rhythmlian.cn/2022/02/14/relationship-cal/</id>
+    <published>2022-02-14T04:59:32.000Z</published>
+    <updated>2022-02-14T04:59:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><center><iframe src="http://passer-by.com/relationship/vue/#/" width="750" height="1400" frameborder="0" loading="lazy" allowfullscreen></iframe></center>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="在线工具" scheme="https://rhythmlian.cn/categories/%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="工具" scheme="https://rhythmlian.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>冬奥IPTV直播</title>
@@ -524,33 +551,6 @@
     
     
     <category term="C++" scheme="https://rhythmlian.cn/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>修改Mac下键盘光标移动速度</title>
-    <link href="https://rhythmlian.cn/2020/05/07/MacKeyboardSpeed/"/>
-    <id>https://rhythmlian.cn/2020/05/07/MacKeyboardSpeed/</id>
-    <published>2020-05-07T08:28:17.000Z</published>
-    <updated>2020-05-07T08:28:17.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="默认的Mac键盘设置"><a href="#默认的Mac键盘设置" class="headerlink" title="默认的Mac键盘设置"></a>默认的Mac键盘设置</h2><p>Mac总是“自以为是”地为用户配置他们觉得最舒适的使用方案，在默认的键盘设置下，你总是会感觉长按按键时重复速度很慢，而且在开始重复动作前，会有一个起始延迟。尽管一些时候你可以依靠鼠标点击来实现光标的移动，但是在命令行等靠鼠标点击没卵用的地方，长时间的按键延迟很令人抓狂（特别是体验了Linux和Windows命令行下那种顺滑的感觉后）</p><h2 id="通过“键盘”修改配置"><a href="#通过“键盘”修改配置" class="headerlink" title="通过“键盘”修改配置"></a>通过“键盘”修改配置</h2><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://i.loli.net/2020/05/07/EC34xkGKQ7lY5wb.png" alt="1"></p><h2 id="更快！"><a href="#更快！" class="headerlink" title="更快！"></a>更快！</h2><ol><li><p>打开“terminal”应用程序</p></li><li><p>执行如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write NSGlobalDomain KeyRepeat -int 1</span><br></pre></td></tr></table></figure><ul><li>注：通过“键盘配置”设置的最快速度值为2（值越小响应速度越快），0是最快的速度值，但经过测试后速度1更适合使用~</li></ul></li></ol>]]></content>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="随笔" scheme="https://rhythmlian.cn/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-    <category term="MacOS" scheme="https://rhythmlian.cn/tags/MacOS/"/>
     
   </entry>
   
