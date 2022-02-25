@@ -383,14 +383,6 @@
 <td>通过百度NLP对<code>words</code>或剪切板内容纠错</td>
 </tr>
 <tr>
-<td><code>qs cb get/post [msg]</code></td>
-<td>通过网络硬盘的本地文件系统get或post信息</td>
-</tr>
-<tr>
-<td><code>qs pasteme get/post [password/content]</code></td>
-<td>通过pasteme.cn获取或传递内容</td>
-</tr>
-<tr>
 <td><code>qs bcv [url/video code]</code></td>
 <td>获取B站视频、直播封面图片</td>
 </tr>
@@ -407,11 +399,11 @@
 <td>通过命令参数或剪切板内短视频分享链接下载视频</td>
 </tr>
 <tr>
-<td><code>qs acg  [-save]</code></td>
+<td><code>qs acg  [--save]</code></td>
 <td>获取一张acg图片链接（或保存）</td>
 </tr>
 <tr>
-<td><code>qs bing [-save]</code></td>
+<td><code>qs bing [--save]</code></td>
 <td>获取一张bing图片链接（或保存）</td>
 </tr>
 <tr>
@@ -423,11 +415,11 @@
 <td>查询国内快递</td>
 </tr>
 <tr>
-<td><code>qs loli [-save] [-p]</code></td>
+<td><code>qs loli [--save] [-p]</code></td>
 <td>获取一张萝莉图片链接 [或保存(通过默认代理)]</td>
 </tr>
 <tr>
-<td><code>qs setu [-save] [-p]</code></td>
+<td><code>qs setu [--save] [-p]</code></td>
 <td>获取一张涩图链接 [或保存(通过默认代理)]</td>
 </tr>
 <tr>
@@ -439,7 +431,7 @@
 <td>获取知乎日报</td>
 </tr>
 <tr>
-<td><code>qs wallhaven [-save]</code></td>
+<td><code>qs wallhaven [--save]</code></td>
 <td>获取Wallhaven Top动漫涩图</td>
 </tr>
 <tr>
@@ -447,12 +439,16 @@
 <td>获取关键词的“让我帮你谷歌”链接</td>
 </tr>
 <tr>
-<td><code>qs d60</code></td>
+<td><code>qs d60 [--save]</code></td>
 <td>获取每日60秒早报</td>
 </tr>
 <tr>
 <td><code>qs m2t</code></td>
 <td>磁力链接转种子文件</td>
+</tr>
+<tr>
+<td><code>qs d2m</code></td>
+<td>搜索番号并复制磁力链</td>
 </tr>
 </tbody>
 </table>
@@ -504,9 +500,14 @@
 </tbody>
 </table>
 </div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><details ><summary> 最近(2022-01-15) </summary>
+<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><details ><summary> 最近(2022-02-25) </summary>
               <div class='content'>
-              <p><code>m2t</code>—磁力链接转种子文件</p><p><div id="dplayer0" class="dplayer" style="margin-bottom: 20px;"></div><script>var dplayer0 = new DPlayer({"element":document.getElementById("dplayer0"),"video":{"url":"http://cos.rhythmlian.cn/video/qs-m2t.mp4"}});</script></p>
+              <ul><li><code>d2m</code>— 搜索番号并复制磁力链</li></ul><p><div id="dplayer0" class="dplayer" style="margin-bottom: 20px;"></div><script>var dplayer0 = new DPlayer({"element":document.getElementById("dplayer0"),"video":{"url":"http://cos.rhythmlian.cn/video/qs-d2m.mp4"}});</script></p><ul><li>删除<code>cb</code>, <code>pasteme</code>支持。</li></ul>
+              </div>
+            </details>
+<details ><summary> 2022-01-15 </summary>
+              <div class='content'>
+              <p><code>m2t</code>—磁力链接转种子文件</p><p><div id="dplayer1" class="dplayer" style="margin-bottom: 20px;"></div><script>var dplayer1 = new DPlayer({"element":document.getElementById("dplayer1"),"video":{"url":"http://cos.rhythmlian.cn/video/qs-m2t.mp4"}});</script></p>
               </div>
             </details>
 <details ><summary> 2021-08-07 </summary>
@@ -531,7 +532,7 @@
             </details>
 <details ><summary> 2021-01-16 </summary>
               <div class='content'>
-              <ol><li><p><code>kd</code> — 查询国内快递!</p><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://p.pstatp.com/origin/137210002d9efbdd6ca76" alt=""></p></li><li><p>下载交互优化</p><p><div id="dplayer1" class="dplayer" style="margin-bottom: 20px;"></div><script>var dplayer1 = new DPlayer({"element":document.getElementById("dplayer1"),"video":{"url":"http://cos.rhythmlian.cn/video/qs-dl.mp4"}});</script></p></li><li><p>压缩与解压缩支持<code>7z</code>格式</p></li><li><p>修复bug</p></li></ol>
+              <ol><li><p><code>kd</code> — 查询国内快递!</p><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://p.pstatp.com/origin/137210002d9efbdd6ca76" alt=""></p></li><li><p>下载交互优化</p><p><div id="dplayer2" class="dplayer" style="margin-bottom: 20px;"></div><script>var dplayer2 = new DPlayer({"element":document.getElementById("dplayer2"),"video":{"url":"http://cos.rhythmlian.cn/video/qs-dl.mp4"}});</script></p></li><li><p>压缩与解压缩支持<code>7z</code>格式</p></li><li><p>修复bug</p></li></ol>
               </div>
             </details>
 <hr>
