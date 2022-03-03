@@ -354,21 +354,7 @@
   </url>
   
   <url>
-    <loc>https://rhythmlian.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2022-03-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://rhythmlian.cn/tags/Python/</loc>
-    <lastmod>2022-03-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rhythmlian.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2022-03-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -382,21 +368,21 @@
   </url>
   
   <url>
+    <loc>https://rhythmlian.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2022-03-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rhythmlian.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2022-03-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://rhythmlian.cn/tags/uTools/</loc>
-    <lastmod>2022-03-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rhythmlian.cn/tags/C/</loc>
-    <lastmod>2022-03-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rhythmlian.cn/tags/Python%E5%BC%80%E6%BA%90%E5%BA%93%E6%96%87%E6%A1%A3/</loc>
     <lastmod>2022-03-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -410,7 +396,7 @@
   </url>
   
   <url>
-    <loc>https://rhythmlian.cn/tags/GFW/</loc>
+    <loc>https://rhythmlian.cn/tags/Python%E5%BC%80%E6%BA%90%E5%BA%93%E6%96%87%E6%A1%A3/</loc>
     <lastmod>2022-03-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -424,7 +410,21 @@
   </url>
   
   <url>
+    <loc>https://rhythmlian.cn/tags/C/</loc>
+    <lastmod>2022-03-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://rhythmlian.cn/tags/%E6%94%BB%E7%95%A5/</loc>
+    <lastmod>2022-03-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rhythmlian.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/</loc>
     <lastmod>2022-03-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -445,7 +445,7 @@
   </url>
   
   <url>
-    <loc>https://rhythmlian.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/</loc>
+    <loc>https://rhythmlian.cn/tags/GFW/</loc>
     <lastmod>2022-03-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -475,14 +475,14 @@
   </url>
   
   <url>
-    <loc>https://rhythmlian.cn/categories/%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/</loc>
+    <loc>https://rhythmlian.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/</loc>
     <lastmod>2022-03-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://rhythmlian.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/</loc>
+    <loc>https://rhythmlian.cn/categories/%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/</loc>
     <lastmod>2022-03-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
