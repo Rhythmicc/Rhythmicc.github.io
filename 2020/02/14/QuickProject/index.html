@@ -524,7 +524,7 @@
 </ul>
 <h4 id="将Commander应用注册为全局命令"><a href="#将Commander应用注册为全局命令" class="headerlink" title="将Commander应用注册为全局命令"></a>将Commander应用注册为全局命令</h4><h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><ol>
 <li><p>你需要创建一个“Qpro全局文件夹”，比如<code>~/.local/QuickProject/</code>，并将其作为<code>QproGlobalDir</code>的环境变量。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/.<span class="built_in">local</span>/QuickProject</span><br><span class="line"><span class="comment"># 打开你的 .*shrc 文件</span></span><br><span class="line">vim .zshrc</span><br><span class="line"><span class="comment"># 填入如下内容</span></span><br><span class="line"><span class="built_in">export</span> QproGlobalDir=<span class="string">&quot;/path/to/.local/QuickProject&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/.<span class="built_in">local</span>/QuickProject</span><br><span class="line"><span class="comment"># 打开你的 .*shrc 文件</span></span><br><span class="line">vim .zshrc</span><br><span class="line"><span class="comment"># 填入如下内容</span></span><br><span class="line"><span class="built_in">export</span> QproGlobalDir=<span class="string">&quot;<span class="variable">$HOME</span>/.local/QuickProject&quot;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>设置<code>$PATH</code>, 用于执行Qpro注册的全局命令。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开你的 .*shrc 文件</span></span><br><span class="line">vim .zshrc</span><br><span class="line"><span class="comment"># 填入如下内容</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;<span class="variable">$PATH</span>:<span class="variable">$QproGlobalDir</span>/bin&quot;</span></span><br></pre></td></tr></table></figure>
@@ -532,7 +532,7 @@
 </ol>
 <h5 id="注册方式："><a href="#注册方式：" class="headerlink" title="注册方式："></a>注册方式：</h5><ol>
 <li><strong>注册为全局命令</strong>：<code>Qpro register-global [--disable_global_command]</code> : 将当前项目注册为全局命令，开启<code>--disable_global_command</code>选项后，Qpro不会生成全局命令，但你仍可以通过<code>Qpro bin &lt;app&gt; *</code>来调用Commander APP。</li>
-<li><strong>Fig自动补全脚本生成与应用</strong>：进入Fig的自定义脚本文件夹下，通常为<code>~/.fig/user/autocomplete</code>，执行<code>Qpro gen-fig-script</code>。</li>
+<li><strong>Fig自动补全脚本生成与应用</strong>：进入Fig的自定义脚本文件夹下，通常为<code>~/.fig/autocomplete</code>或<code>~/.fig/user/autocomplete</code>，执行<code>Qpro gen-fig-script</code>。</li>
 <li><strong>zsh Tab补全脚本生成</strong>: 进入你的<code>$fpath</code>下，通常为<code>/usr/local/share/zsh/site-functions</code>，执行<code>Qpro gen-zsh-comp</code>，重启终端即可。</li>
 </ol>
 <h5 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h5><div class="table-container">
